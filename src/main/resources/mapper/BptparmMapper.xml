@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaoyang.loadparm.mapper.BptparmMapper">
+  <resultMap id="BaseResultMap" type="com.gaoyang.loadparm.entity.Bptparm">
+    <id column="TYPE" jdbcType="CHAR" property="TYPE" />
+    <id column="CODE" jdbcType="CHAR" property="CODE" />
+    <result column="EFF_DATE" jdbcType="DECIMAL" property="EFF_DATE" />
+    <result column="EXP_DATE" jdbcType="DECIMAL" property="EXP_DATE" />
+    <result column="DESC" jdbcType="CHAR" property="DESC" />
+    <result column="CDESC" jdbcType="CHAR" property="CDESC" />
+    <result column="UPD_DATE" jdbcType="DECIMAL" property="UPD_DATE" />
+    <result column="UPD_BR" jdbcType="DECIMAL" property="UPD_BR" />
+    <result column="UPD_TLR" jdbcType="CHAR" property="UPD_TLR" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gaoyang.loadparm.entity.Bptparm">
+    <result column="VAL" jdbcType="LONGVARBINARY" property="VAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    TYPE, CODE, EFF_DATE, EXP_DATE, `DESC`, CDESC, UPD_DATE, UPD_BR, UPD_TLR, TS
+  </sql>
+  <sql id="Blob_Column_List">
+    VAL
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.gaoyang.loadparm.entity.BptparmExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from bptparm
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.gaoyang.loadparm.entity.BptparmExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from bptparm
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.gaoyang.loadparm.entity.BptparmKey" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from bptparm
+    where TYPE = #{TYPE,jdbcType=CHAR}
+      and CODE = #{CODE,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.gaoyang.loadparm.entity.BptparmKey">
+    delete from bptparm
+    where TYPE = #{TYPE,jdbcType=CHAR}
+      and CODE = #{CODE,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.gaoyang.loadparm.entity.Bptparm">
+    insert into bptparm (TYPE, CODE, EFF_DATE, 
+      EXP_DATE, `DESC`, CDESC, UPD_DATE,
+      UPD_BR, UPD_TLR, TS, 
+      VAL)
+    values (#{TYPE,jdbcType=CHAR}, #{CODE,jdbcType=CHAR}, #{EFF_DATE,jdbcType=DECIMAL}, 
+      #{EXP_DATE,jdbcType=DECIMAL}, #{DESC,jdbcType=CHAR}, #{CDESC,jdbcType=CHAR}, #{UPD_DATE,jdbcType=DECIMAL}, 
+      #{UPD_BR,jdbcType=DECIMAL}, #{UPD_TLR,jdbcType=CHAR}, #{TS,jdbcType=TIMESTAMP}, 
+      #{VAL,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gaoyang.loadparm.entity.Bptparm">
+    insert into bptparm
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="TYPE != null">
+        TYPE,
+      </if>
+      <if test="CODE != null">
+        CODE,
+      </if>
+      <if test="EFF_DATE != null">
+        EFF_DATE,
+      </if>
+      <if test="EXP_DATE != null">
+        EXP_DATE,
+      </if>
+      <if test="DESC != null">
+        `DESC`,
+      </if>
+      <if test="CDESC != null">
+        CDESC,
+      </if>
+      <if test="UPD_DATE != null">
+        UPD_DATE,
+      </if>
+      <if test="UPD_BR != null">
+        UPD_BR,
+      </if>
+      <if test="UPD_TLR != null">
+        UPD_TLR,
+      </if>
+      <if test="TS != null">
+        TS,
+      </if>
+      <if test="VAL != null">
+        VAL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="TYPE != null">
+        #{TYPE,jdbcType=CHAR},
+      </if>
+      <if test="CODE != null">
+        #{CODE,jdbcType=CHAR},
+      </if>
+      <if test="EFF_DATE != null">
+        #{EFF_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="EXP_DATE != null">
+        #{EXP_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="DESC != null">
+        #{DESC,jdbcType=CHAR},
+      </if>
+      <if test="CDESC != null">
+        #{CDESC,jdbcType=CHAR},
+      </if>
+      <if test="UPD_DATE != null">
+        #{UPD_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_BR != null">
+        #{UPD_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_TLR != null">
+        #{UPD_TLR,jdbcType=CHAR},
+      </if>
+      <if test="TS != null">
+        #{TS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="VAL != null">
+        #{VAL,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gaoyang.loadparm.entity.Bptparm">
+    update bptparm
+    <set>
+      <if test="EFF_DATE != null">
+        EFF_DATE = #{EFF_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="EXP_DATE != null">
+        EXP_DATE = #{EXP_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="DESC != null">
+        `DESC` = #{DESC,jdbcType=CHAR},
+      </if>
+      <if test="CDESC != null">
+        CDESC = #{CDESC,jdbcType=CHAR},
+      </if>
+      <if test="UPD_DATE != null">
+        UPD_DATE = #{UPD_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_BR != null">
+        UPD_BR = #{UPD_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_TLR != null">
+        UPD_TLR = #{UPD_TLR,jdbcType=CHAR},
+      </if>
+      <if test="TS != null">
+        TS = #{TS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="VAL != null">
+        VAL = #{VAL,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where TYPE = #{TYPE,jdbcType=CHAR}
+      and CODE = #{CODE,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.gaoyang.loadparm.entity.Bptparm">
+    update bptparm
+    set EFF_DATE = #{EFF_DATE,jdbcType=DECIMAL},
+      EXP_DATE = #{EXP_DATE,jdbcType=DECIMAL},
+      `DESC` = #{DESC,jdbcType=CHAR},
+      CDESC = #{CDESC,jdbcType=CHAR},
+      UPD_DATE = #{UPD_DATE,jdbcType=DECIMAL},
+      UPD_BR = #{UPD_BR,jdbcType=DECIMAL},
+      UPD_TLR = #{UPD_TLR,jdbcType=CHAR},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      VAL = #{VAL,jdbcType=LONGVARBINARY}
+    where TYPE = #{TYPE,jdbcType=CHAR}
+      and CODE = #{CODE,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gaoyang.loadparm.entity.Bptparm">
+    update bptparm
+    set EFF_DATE = #{EFF_DATE,jdbcType=DECIMAL},
+      EXP_DATE = #{EXP_DATE,jdbcType=DECIMAL},
+      `DESC` = #{DESC,jdbcType=CHAR},
+      CDESC = #{CDESC,jdbcType=CHAR},
+      UPD_DATE = #{UPD_DATE,jdbcType=DECIMAL},
+      UPD_BR = #{UPD_BR,jdbcType=DECIMAL},
+      UPD_TLR = #{UPD_TLR,jdbcType=CHAR},
+      TS = #{TS,jdbcType=TIMESTAMP}
+    where TYPE = #{TYPE,jdbcType=CHAR}
+      and CODE = #{CODE,jdbcType=CHAR}
+  </update>
+</mapper>

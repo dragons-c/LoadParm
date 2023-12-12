@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaoyang.loadparm.mapper.CitoicMapper">
+  <resultMap id="BaseResultMap" type="com.gaoyang.loadparm.entity.Citoic">
+    <id column="OIC_NO" jdbcType="CHAR" property="OIC_NO" />
+    <result column="BOOK_BCH" jdbcType="DECIMAL" property="BOOK_BCH" />
+    <result column="TEAM_NO" jdbcType="CHAR" property="TEAM_NO" />
+    <result column="NAME" jdbcType="CHAR" property="NAME" />
+    <result column="TEL_NO" jdbcType="CHAR" property="TEL_NO" />
+    <result column="EMAIL" jdbcType="CHAR" property="EMAIL" />
+    <result column="STAFF_NO" jdbcType="CHAR" property="STAFF_NO" />
+    <result column="LEADER_FLG" jdbcType="CHAR" property="LEADER_FLG" />
+    <result column="TLR_ID" jdbcType="CHAR" property="TLR_ID" />
+    <result column="CREATE_UNIT" jdbcType="DECIMAL" property="CREATE_UNIT" />
+    <result column="CREATE_TLR" jdbcType="CHAR" property="CREATE_TLR" />
+    <result column="CREATE_DATE" jdbcType="DECIMAL" property="CREATE_DATE" />
+    <result column="CREATE_TIME" jdbcType="DECIMAL" property="CREATE_TIME" />
+    <result column="LAST_UPD_DATE" jdbcType="DECIMAL" property="LAST_UPD_DATE" />
+    <result column="LAST_UPD_TLR" jdbcType="CHAR" property="LAST_UPD_TLR" />
+    <result column="UPDTBL_DATE" jdbcType="DECIMAL" property="UPDTBL_DATE" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    OIC_NO, BOOK_BCH, TEAM_NO, NAME, TEL_NO, EMAIL, STAFF_NO, LEADER_FLG, TLR_ID, CREATE_UNIT, 
+    CREATE_TLR, CREATE_DATE, CREATE_TIME, LAST_UPD_DATE, LAST_UPD_TLR, UPDTBL_DATE, TS
+  </sql>
+  <select id="selectByExample" parameterType="com.gaoyang.loadparm.entity.CitoicExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from citoic
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from citoic
+    where OIC_NO = #{OIC_NO,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from citoic
+    where OIC_NO = #{OIC_NO,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.gaoyang.loadparm.entity.Citoic">
+    insert into citoic (OIC_NO, BOOK_BCH, TEAM_NO, 
+      NAME, TEL_NO, EMAIL, STAFF_NO, 
+      LEADER_FLG, TLR_ID, CREATE_UNIT, 
+      CREATE_TLR, CREATE_DATE, CREATE_TIME, 
+      LAST_UPD_DATE, LAST_UPD_TLR, UPDTBL_DATE, 
+      TS)
+    values (#{OIC_NO,jdbcType=CHAR}, #{BOOK_BCH,jdbcType=DECIMAL}, #{TEAM_NO,jdbcType=CHAR}, 
+      #{NAME,jdbcType=CHAR}, #{TEL_NO,jdbcType=CHAR}, #{EMAIL,jdbcType=CHAR}, #{STAFF_NO,jdbcType=CHAR}, 
+      #{LEADER_FLG,jdbcType=CHAR}, #{TLR_ID,jdbcType=CHAR}, #{CREATE_UNIT,jdbcType=DECIMAL}, 
+      #{CREATE_TLR,jdbcType=CHAR}, #{CREATE_DATE,jdbcType=DECIMAL}, #{CREATE_TIME,jdbcType=DECIMAL}, 
+      #{LAST_UPD_DATE,jdbcType=DECIMAL}, #{LAST_UPD_TLR,jdbcType=CHAR}, #{UPDTBL_DATE,jdbcType=DECIMAL}, 
+      #{TS,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gaoyang.loadparm.entity.Citoic">
+    insert into citoic
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="OIC_NO != null">
+        OIC_NO,
+      </if>
+      <if test="BOOK_BCH != null">
+        BOOK_BCH,
+      </if>
+      <if test="TEAM_NO != null">
+        TEAM_NO,
+      </if>
+      <if test="NAME != null">
+        NAME,
+      </if>
+      <if test="TEL_NO != null">
+        TEL_NO,
+      </if>
+      <if test="EMAIL != null">
+        EMAIL,
+      </if>
+      <if test="STAFF_NO != null">
+        STAFF_NO,
+      </if>
+      <if test="LEADER_FLG != null">
+        LEADER_FLG,
+      </if>
+      <if test="TLR_ID != null">
+        TLR_ID,
+      </if>
+      <if test="CREATE_UNIT != null">
+        CREATE_UNIT,
+      </if>
+      <if test="CREATE_TLR != null">
+        CREATE_TLR,
+      </if>
+      <if test="CREATE_DATE != null">
+        CREATE_DATE,
+      </if>
+      <if test="CREATE_TIME != null">
+        CREATE_TIME,
+      </if>
+      <if test="LAST_UPD_DATE != null">
+        LAST_UPD_DATE,
+      </if>
+      <if test="LAST_UPD_TLR != null">
+        LAST_UPD_TLR,
+      </if>
+      <if test="UPDTBL_DATE != null">
+        UPDTBL_DATE,
+      </if>
+      <if test="TS != null">
+        TS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="OIC_NO != null">
+        #{OIC_NO,jdbcType=CHAR},
+      </if>
+      <if test="BOOK_BCH != null">
+        #{BOOK_BCH,jdbcType=DECIMAL},
+      </if>
+      <if test="TEAM_NO != null">
+        #{TEAM_NO,jdbcType=CHAR},
+      </if>
+      <if test="NAME != null">
+        #{NAME,jdbcType=CHAR},
+      </if>
+      <if test="TEL_NO != null">
+        #{TEL_NO,jdbcType=CHAR},
+      </if>
+      <if test="EMAIL != null">
+        #{EMAIL,jdbcType=CHAR},
+      </if>
+      <if test="STAFF_NO != null">
+        #{STAFF_NO,jdbcType=CHAR},
+      </if>
+      <if test="LEADER_FLG != null">
+        #{LEADER_FLG,jdbcType=CHAR},
+      </if>
+      <if test="TLR_ID != null">
+        #{TLR_ID,jdbcType=CHAR},
+      </if>
+      <if test="CREATE_UNIT != null">
+        #{CREATE_UNIT,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATE_TLR != null">
+        #{CREATE_TLR,jdbcType=CHAR},
+      </if>
+      <if test="CREATE_DATE != null">
+        #{CREATE_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATE_TIME != null">
+        #{CREATE_TIME,jdbcType=DECIMAL},
+      </if>
+      <if test="LAST_UPD_DATE != null">
+        #{LAST_UPD_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="LAST_UPD_TLR != null">
+        #{LAST_UPD_TLR,jdbcType=CHAR},
+      </if>
+      <if test="UPDTBL_DATE != null">
+        #{UPDTBL_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="TS != null">
+        #{TS,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gaoyang.loadparm.entity.Citoic">
+    update citoic
+    <set>
+      <if test="BOOK_BCH != null">
+        BOOK_BCH = #{BOOK_BCH,jdbcType=DECIMAL},
+      </if>
+      <if test="TEAM_NO != null">
+        TEAM_NO = #{TEAM_NO,jdbcType=CHAR},
+      </if>
+      <if test="NAME != null">
+        NAME = #{NAME,jdbcType=CHAR},
+      </if>
+      <if test="TEL_NO != null">
+        TEL_NO = #{TEL_NO,jdbcType=CHAR},
+      </if>
+      <if test="EMAIL != null">
+        EMAIL = #{EMAIL,jdbcType=CHAR},
+      </if>
+      <if test="STAFF_NO != null">
+        STAFF_NO = #{STAFF_NO,jdbcType=CHAR},
+      </if>
+      <if test="LEADER_FLG != null">
+        LEADER_FLG = #{LEADER_FLG,jdbcType=CHAR},
+      </if>
+      <if test="TLR_ID != null">
+        TLR_ID = #{TLR_ID,jdbcType=CHAR},
+      </if>
+      <if test="CREATE_UNIT != null">
+        CREATE_UNIT = #{CREATE_UNIT,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATE_TLR != null">
+        CREATE_TLR = #{CREATE_TLR,jdbcType=CHAR},
+      </if>
+      <if test="CREATE_DATE != null">
+        CREATE_DATE = #{CREATE_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATE_TIME != null">
+        CREATE_TIME = #{CREATE_TIME,jdbcType=DECIMAL},
+      </if>
+      <if test="LAST_UPD_DATE != null">
+        LAST_UPD_DATE = #{LAST_UPD_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="LAST_UPD_TLR != null">
+        LAST_UPD_TLR = #{LAST_UPD_TLR,jdbcType=CHAR},
+      </if>
+      <if test="UPDTBL_DATE != null">
+        UPDTBL_DATE = #{UPDTBL_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="TS != null">
+        TS = #{TS,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where OIC_NO = #{OIC_NO,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gaoyang.loadparm.entity.Citoic">
+    update citoic
+    set BOOK_BCH = #{BOOK_BCH,jdbcType=DECIMAL},
+      TEAM_NO = #{TEAM_NO,jdbcType=CHAR},
+      NAME = #{NAME,jdbcType=CHAR},
+      TEL_NO = #{TEL_NO,jdbcType=CHAR},
+      EMAIL = #{EMAIL,jdbcType=CHAR},
+      STAFF_NO = #{STAFF_NO,jdbcType=CHAR},
+      LEADER_FLG = #{LEADER_FLG,jdbcType=CHAR},
+      TLR_ID = #{TLR_ID,jdbcType=CHAR},
+      CREATE_UNIT = #{CREATE_UNIT,jdbcType=DECIMAL},
+      CREATE_TLR = #{CREATE_TLR,jdbcType=CHAR},
+      CREATE_DATE = #{CREATE_DATE,jdbcType=DECIMAL},
+      CREATE_TIME = #{CREATE_TIME,jdbcType=DECIMAL},
+      LAST_UPD_DATE = #{LAST_UPD_DATE,jdbcType=DECIMAL},
+      LAST_UPD_TLR = #{LAST_UPD_TLR,jdbcType=CHAR},
+      UPDTBL_DATE = #{UPDTBL_DATE,jdbcType=DECIMAL},
+      TS = #{TS,jdbcType=TIMESTAMP}
+    where OIC_NO = #{OIC_NO,jdbcType=CHAR}
+  </update>
+</mapper>

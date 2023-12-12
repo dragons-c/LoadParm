@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaoyang.loadparm.mapper.BptgrpMapper">
+  <resultMap id="BaseResultMap" type="com.gaoyang.loadparm.entity.Bptgrp">
+    <id column="ROLE_CD" jdbcType="CHAR" property="ROLE_CD" />
+    <result column="ROLE_CNNM" jdbcType="CHAR" property="ROLE_CNNM" />
+    <result column="ROLE_ENNM" jdbcType="CHAR" property="ROLE_ENNM" />
+    <result column="ROLE_CNMS" jdbcType="CHAR" property="ROLE_CNMS" />
+    <result column="ROLE_ENMS" jdbcType="CHAR" property="ROLE_ENMS" />
+    <result column="ATH_MOV_FLG" jdbcType="CHAR" property="ATH_MOV_FLG" />
+    <result column="EFF_DT" jdbcType="DECIMAL" property="EFF_DT" />
+    <result column="EXP_DT" jdbcType="DECIMAL" property="EXP_DT" />
+    <result column="UPD_DT" jdbcType="DECIMAL" property="UPD_DT" />
+    <result column="UPD_TLR" jdbcType="CHAR" property="UPD_TLR" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ROLE_CD, ROLE_CNNM, ROLE_ENNM, ROLE_CNMS, ROLE_ENMS, ATH_MOV_FLG, EFF_DT, EXP_DT, 
+    UPD_DT, UPD_TLR
+  </sql>
+  <select id="selectByExample" parameterType="com.gaoyang.loadparm.entity.BptgrpExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from bptgrp
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bptgrp
+    where ROLE_CD = #{ROLE_CD,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from bptgrp
+    where ROLE_CD = #{ROLE_CD,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.gaoyang.loadparm.entity.Bptgrp">
+    insert into bptgrp (ROLE_CD, ROLE_CNNM, ROLE_ENNM, 
+      ROLE_CNMS, ROLE_ENMS, ATH_MOV_FLG, 
+      EFF_DT, EXP_DT, UPD_DT, 
+      UPD_TLR)
+    values (#{ROLE_CD,jdbcType=CHAR}, #{ROLE_CNNM,jdbcType=CHAR}, #{ROLE_ENNM,jdbcType=CHAR}, 
+      #{ROLE_CNMS,jdbcType=CHAR}, #{ROLE_ENMS,jdbcType=CHAR}, #{ATH_MOV_FLG,jdbcType=CHAR}, 
+      #{EFF_DT,jdbcType=DECIMAL}, #{EXP_DT,jdbcType=DECIMAL}, #{UPD_DT,jdbcType=DECIMAL}, 
+      #{UPD_TLR,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gaoyang.loadparm.entity.Bptgrp">
+    insert into bptgrp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ROLE_CD != null">
+        ROLE_CD,
+      </if>
+      <if test="ROLE_CNNM != null">
+        ROLE_CNNM,
+      </if>
+      <if test="ROLE_ENNM != null">
+        ROLE_ENNM,
+      </if>
+      <if test="ROLE_CNMS != null">
+        ROLE_CNMS,
+      </if>
+      <if test="ROLE_ENMS != null">
+        ROLE_ENMS,
+      </if>
+      <if test="ATH_MOV_FLG != null">
+        ATH_MOV_FLG,
+      </if>
+      <if test="EFF_DT != null">
+        EFF_DT,
+      </if>
+      <if test="EXP_DT != null">
+        EXP_DT,
+      </if>
+      <if test="UPD_DT != null">
+        UPD_DT,
+      </if>
+      <if test="UPD_TLR != null">
+        UPD_TLR,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ROLE_CD != null">
+        #{ROLE_CD,jdbcType=CHAR},
+      </if>
+      <if test="ROLE_CNNM != null">
+        #{ROLE_CNNM,jdbcType=CHAR},
+      </if>
+      <if test="ROLE_ENNM != null">
+        #{ROLE_ENNM,jdbcType=CHAR},
+      </if>
+      <if test="ROLE_CNMS != null">
+        #{ROLE_CNMS,jdbcType=CHAR},
+      </if>
+      <if test="ROLE_ENMS != null">
+        #{ROLE_ENMS,jdbcType=CHAR},
+      </if>
+      <if test="ATH_MOV_FLG != null">
+        #{ATH_MOV_FLG,jdbcType=CHAR},
+      </if>
+      <if test="EFF_DT != null">
+        #{EFF_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="EXP_DT != null">
+        #{EXP_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_DT != null">
+        #{UPD_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_TLR != null">
+        #{UPD_TLR,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gaoyang.loadparm.entity.Bptgrp">
+    update bptgrp
+    <set>
+      <if test="ROLE_CNNM != null">
+        ROLE_CNNM = #{ROLE_CNNM,jdbcType=CHAR},
+      </if>
+      <if test="ROLE_ENNM != null">
+        ROLE_ENNM = #{ROLE_ENNM,jdbcType=CHAR},
+      </if>
+      <if test="ROLE_CNMS != null">
+        ROLE_CNMS = #{ROLE_CNMS,jdbcType=CHAR},
+      </if>
+      <if test="ROLE_ENMS != null">
+        ROLE_ENMS = #{ROLE_ENMS,jdbcType=CHAR},
+      </if>
+      <if test="ATH_MOV_FLG != null">
+        ATH_MOV_FLG = #{ATH_MOV_FLG,jdbcType=CHAR},
+      </if>
+      <if test="EFF_DT != null">
+        EFF_DT = #{EFF_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="EXP_DT != null">
+        EXP_DT = #{EXP_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_DT != null">
+        UPD_DT = #{UPD_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_TLR != null">
+        UPD_TLR = #{UPD_TLR,jdbcType=CHAR},
+      </if>
+    </set>
+    where ROLE_CD = #{ROLE_CD,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gaoyang.loadparm.entity.Bptgrp">
+    update bptgrp
+    set ROLE_CNNM = #{ROLE_CNNM,jdbcType=CHAR},
+      ROLE_ENNM = #{ROLE_ENNM,jdbcType=CHAR},
+      ROLE_CNMS = #{ROLE_CNMS,jdbcType=CHAR},
+      ROLE_ENMS = #{ROLE_ENMS,jdbcType=CHAR},
+      ATH_MOV_FLG = #{ATH_MOV_FLG,jdbcType=CHAR},
+      EFF_DT = #{EFF_DT,jdbcType=DECIMAL},
+      EXP_DT = #{EXP_DT,jdbcType=DECIMAL},
+      UPD_DT = #{UPD_DT,jdbcType=DECIMAL},
+      UPD_TLR = #{UPD_TLR,jdbcType=CHAR}
+    where ROLE_CD = #{ROLE_CD,jdbcType=CHAR}
+  </update>
+</mapper>

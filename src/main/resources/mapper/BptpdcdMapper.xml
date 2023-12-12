@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaoyang.loadparm.mapper.BptpdcdMapper">
+  <resultMap id="BaseResultMap" type="com.gaoyang.loadparm.entity.Bptpdcd">
+    <id column="PRDT_CODE" jdbcType="CHAR" property="PRDT_CODE" />
+    <result column="CUS_PER_FLG" jdbcType="CHAR" property="CUS_PER_FLG" />
+    <result column="CUS_COM_FLG" jdbcType="CHAR" property="CUS_COM_FLG" />
+    <result column="CUS_FIN_FLG" jdbcType="CHAR" property="CUS_FIN_FLG" />
+    <result column="CUS_COM_SCOPE" jdbcType="CHAR" property="CUS_COM_SCOPE" />
+    <result column="CUS_COM_TYP1" jdbcType="CHAR" property="CUS_COM_TYP1" />
+    <result column="CUS_COM_TYP2" jdbcType="CHAR" property="CUS_COM_TYP2" />
+    <result column="CUS_COM_TYP3" jdbcType="CHAR" property="CUS_COM_TYP3" />
+    <result column="CUS_COM_TYP4" jdbcType="CHAR" property="CUS_COM_TYP4" />
+    <result column="CUS_COM_TYP5" jdbcType="CHAR" property="CUS_COM_TYP5" />
+    <result column="CUS_COM_TYP6" jdbcType="CHAR" property="CUS_COM_TYP6" />
+    <result column="CUS_COM_TYP7" jdbcType="CHAR" property="CUS_COM_TYP7" />
+    <result column="CUS_COM_TYP8" jdbcType="CHAR" property="CUS_COM_TYP8" />
+    <result column="CUS_COM_TYP9" jdbcType="CHAR" property="CUS_COM_TYP9" />
+    <result column="CUS_COM_TYP10" jdbcType="CHAR" property="CUS_COM_TYP10" />
+    <result column="CUS_FIN_SCOPE" jdbcType="CHAR" property="CUS_FIN_SCOPE" />
+    <result column="CUS_FIN_TYP1" jdbcType="CHAR" property="CUS_FIN_TYP1" />
+    <result column="CUS_FIN_TYP2" jdbcType="CHAR" property="CUS_FIN_TYP2" />
+    <result column="CUS_FIN_TYP3" jdbcType="CHAR" property="CUS_FIN_TYP3" />
+    <result column="CUS_FIN_TYP4" jdbcType="CHAR" property="CUS_FIN_TYP4" />
+    <result column="CUS_FIN_TYP5" jdbcType="CHAR" property="CUS_FIN_TYP5" />
+    <result column="CUS_FIN_TYP6" jdbcType="CHAR" property="CUS_FIN_TYP6" />
+    <result column="CUS_FIN_TYP7" jdbcType="CHAR" property="CUS_FIN_TYP7" />
+    <result column="CUS_FIN_TYP8" jdbcType="CHAR" property="CUS_FIN_TYP8" />
+    <result column="CUS_FIN_TYP9" jdbcType="CHAR" property="CUS_FIN_TYP9" />
+    <result column="CUS_FIN_TYP10" jdbcType="CHAR" property="CUS_FIN_TYP10" />
+    <result column="CUS_GROUP_SCOPE" jdbcType="CHAR" property="CUS_GROUP_SCOPE" />
+    <result column="CUS_GROUP1" jdbcType="CHAR" property="CUS_GROUP1" />
+    <result column="CUS_GROUP2" jdbcType="CHAR" property="CUS_GROUP2" />
+    <result column="CUS_GROUP3" jdbcType="CHAR" property="CUS_GROUP3" />
+    <result column="CUS_GROUP4" jdbcType="CHAR" property="CUS_GROUP4" />
+    <result column="CUS_GROUP5" jdbcType="CHAR" property="CUS_GROUP5" />
+    <result column="CUS_GROUP6" jdbcType="CHAR" property="CUS_GROUP6" />
+    <result column="CUS_GROUP7" jdbcType="CHAR" property="CUS_GROUP7" />
+    <result column="CUS_GROUP8" jdbcType="CHAR" property="CUS_GROUP8" />
+    <result column="CUS_GROUP9" jdbcType="CHAR" property="CUS_GROUP9" />
+    <result column="CUS_GROUP10" jdbcType="CHAR" property="CUS_GROUP10" />
+    <result column="PARTI_METH" jdbcType="CHAR" property="PARTI_METH" />
+    <result column="PARTI_TYPE" jdbcType="CHAR" property="PARTI_TYPE" />
+    <result column="PARTI_STRU" jdbcType="CHAR" property="PARTI_STRU" />
+    <result column="SOLD_RGN" jdbcType="CHAR" property="SOLD_RGN" />
+    <result column="CHNL_SCOPE" jdbcType="CHAR" property="CHNL_SCOPE" />
+    <result column="CHNL1" jdbcType="CHAR" property="CHNL1" />
+    <result column="CHNL2" jdbcType="CHAR" property="CHNL2" />
+    <result column="CHNL3" jdbcType="CHAR" property="CHNL3" />
+    <result column="CHNL4" jdbcType="CHAR" property="CHNL4" />
+    <result column="CHNL5" jdbcType="CHAR" property="CHNL5" />
+    <result column="CHNL6" jdbcType="CHAR" property="CHNL6" />
+    <result column="CHNL7" jdbcType="CHAR" property="CHNL7" />
+    <result column="CHNL8" jdbcType="CHAR" property="CHNL8" />
+    <result column="CHNL9" jdbcType="CHAR" property="CHNL9" />
+    <result column="CHNL10" jdbcType="CHAR" property="CHNL10" />
+    <result column="PRDT_CUST_INFO" jdbcType="VARCHAR" property="PRDT_CUST_INFO" />
+    <result column="PRDT_MARKT_GOAL" jdbcType="VARCHAR" property="PRDT_MARKT_GOAL" />
+    <result column="COMP_PRDT_DESC" jdbcType="VARCHAR" property="COMP_PRDT_DESC" />
+    <result column="PRDT_ADV_DESC" jdbcType="VARCHAR" property="PRDT_ADV_DESC" />
+    <result column="PRDT_FAV_INFO" jdbcType="VARCHAR" property="PRDT_FAV_INFO" />
+    <result column="PRDT_COUNTER" jdbcType="DECIMAL" property="PRDT_COUNTER" />
+    <result column="SOLD_NUM" jdbcType="DECIMAL" property="SOLD_NUM" />
+    <result column="SOLD_AMT" jdbcType="DECIMAL" property="SOLD_AMT" />
+    <result column="BEL_BR" jdbcType="DECIMAL" property="BEL_BR" />
+    <result column="LEVEL1" jdbcType="CHAR" property="LEVEL1" />
+    <result column="LEVEL2" jdbcType="CHAR" property="LEVEL2" />
+    <result column="LEVEL3" jdbcType="CHAR" property="LEVEL3" />
+    <result column="LEVEL4" jdbcType="CHAR" property="LEVEL4" />
+    <result column="LEVEL5" jdbcType="CHAR" property="LEVEL5" />
+    <result column="LEVEL6" jdbcType="CHAR" property="LEVEL6" />
+    <result column="LEVEL7" jdbcType="CHAR" property="LEVEL7" />
+    <result column="LEVEL8" jdbcType="CHAR" property="LEVEL8" />
+    <result column="LEVEL9" jdbcType="CHAR" property="LEVEL9" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    PRDT_CODE, CUS_PER_FLG, CUS_COM_FLG, CUS_FIN_FLG, CUS_COM_SCOPE, CUS_COM_TYP1, CUS_COM_TYP2, 
+    CUS_COM_TYP3, CUS_COM_TYP4, CUS_COM_TYP5, CUS_COM_TYP6, CUS_COM_TYP7, CUS_COM_TYP8, 
+    CUS_COM_TYP9, CUS_COM_TYP10, CUS_FIN_SCOPE, CUS_FIN_TYP1, CUS_FIN_TYP2, CUS_FIN_TYP3, 
+    CUS_FIN_TYP4, CUS_FIN_TYP5, CUS_FIN_TYP6, CUS_FIN_TYP7, CUS_FIN_TYP8, CUS_FIN_TYP9, 
+    CUS_FIN_TYP10, CUS_GROUP_SCOPE, CUS_GROUP1, CUS_GROUP2, CUS_GROUP3, CUS_GROUP4, CUS_GROUP5, 
+    CUS_GROUP6, CUS_GROUP7, CUS_GROUP8, CUS_GROUP9, CUS_GROUP10, PARTI_METH, PARTI_TYPE, 
+    PARTI_STRU, SOLD_RGN, CHNL_SCOPE, CHNL1, CHNL2, CHNL3, CHNL4, CHNL5, CHNL6, CHNL7, 
+    CHNL8, CHNL9, CHNL10, PRDT_CUST_INFO, PRDT_MARKT_GOAL, COMP_PRDT_DESC, PRDT_ADV_DESC, 
+    PRDT_FAV_INFO, PRDT_COUNTER, SOLD_NUM, SOLD_AMT, BEL_BR, LEVEL1, LEVEL2, LEVEL3, 
+    LEVEL4, LEVEL5, LEVEL6, LEVEL7, LEVEL8, LEVEL9
+  </sql>
+  <select id="selectByExample" parameterType="com.gaoyang.loadparm.entity.BptpdcdExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from bptpdcd
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bptpdcd
+    where PRDT_CODE = #{PRDT_CODE,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from bptpdcd
+    where PRDT_CODE = #{PRDT_CODE,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.gaoyang.loadparm.entity.Bptpdcd">
+    insert into bptpdcd (PRDT_CODE, CUS_PER_FLG, CUS_COM_FLG, 
+      CUS_FIN_FLG, CUS_COM_SCOPE, CUS_COM_TYP1, 
+      CUS_COM_TYP2, CUS_COM_TYP3, CUS_COM_TYP4, 
+      CUS_COM_TYP5, CUS_COM_TYP6, CUS_COM_TYP7, 
+      CUS_COM_TYP8, CUS_COM_TYP9, CUS_COM_TYP10, 
+      CUS_FIN_SCOPE, CUS_FIN_TYP1, CUS_FIN_TYP2, 
+      CUS_FIN_TYP3, CUS_FIN_TYP4, CUS_FIN_TYP5, 
+      CUS_FIN_TYP6, CUS_FIN_TYP7, CUS_FIN_TYP8, 
+      CUS_FIN_TYP9, CUS_FIN_TYP10, CUS_GROUP_SCOPE, 
+      CUS_GROUP1, CUS_GROUP2, CUS_GROUP3, 
+      CUS_GROUP4, CUS_GROUP5, CUS_GROUP6, 
+      CUS_GROUP7, CUS_GROUP8, CUS_GROUP9, 
+      CUS_GROUP10, PARTI_METH, PARTI_TYPE, 
+      PARTI_STRU, SOLD_RGN, CHNL_SCOPE, 
+      CHNL1, CHNL2, CHNL3, CHNL4, 
+      CHNL5, CHNL6, CHNL7, CHNL8, 
+      CHNL9, CHNL10, PRDT_CUST_INFO, 
+      PRDT_MARKT_GOAL, COMP_PRDT_DESC, PRDT_ADV_DESC, 
+      PRDT_FAV_INFO, PRDT_COUNTER, SOLD_NUM, 
+      SOLD_AMT, BEL_BR, LEVEL1, 
+      LEVEL2, LEVEL3, LEVEL4, LEVEL5, 
+      LEVEL6, LEVEL7, LEVEL8, LEVEL9
+      )
+    values (#{PRDT_CODE,jdbcType=CHAR}, #{CUS_PER_FLG,jdbcType=CHAR}, #{CUS_COM_FLG,jdbcType=CHAR}, 
+      #{CUS_FIN_FLG,jdbcType=CHAR}, #{CUS_COM_SCOPE,jdbcType=CHAR}, #{CUS_COM_TYP1,jdbcType=CHAR}, 
+      #{CUS_COM_TYP2,jdbcType=CHAR}, #{CUS_COM_TYP3,jdbcType=CHAR}, #{CUS_COM_TYP4,jdbcType=CHAR}, 
+      #{CUS_COM_TYP5,jdbcType=CHAR}, #{CUS_COM_TYP6,jdbcType=CHAR}, #{CUS_COM_TYP7,jdbcType=CHAR}, 
+      #{CUS_COM_TYP8,jdbcType=CHAR}, #{CUS_COM_TYP9,jdbcType=CHAR}, #{CUS_COM_TYP10,jdbcType=CHAR}, 
+      #{CUS_FIN_SCOPE,jdbcType=CHAR}, #{CUS_FIN_TYP1,jdbcType=CHAR}, #{CUS_FIN_TYP2,jdbcType=CHAR}, 
+      #{CUS_FIN_TYP3,jdbcType=CHAR}, #{CUS_FIN_TYP4,jdbcType=CHAR}, #{CUS_FIN_TYP5,jdbcType=CHAR}, 
+      #{CUS_FIN_TYP6,jdbcType=CHAR}, #{CUS_FIN_TYP7,jdbcType=CHAR}, #{CUS_FIN_TYP8,jdbcType=CHAR}, 
+      #{CUS_FIN_TYP9,jdbcType=CHAR}, #{CUS_FIN_TYP10,jdbcType=CHAR}, #{CUS_GROUP_SCOPE,jdbcType=CHAR}, 
+      #{CUS_GROUP1,jdbcType=CHAR}, #{CUS_GROUP2,jdbcType=CHAR}, #{CUS_GROUP3,jdbcType=CHAR}, 
+      #{CUS_GROUP4,jdbcType=CHAR}, #{CUS_GROUP5,jdbcType=CHAR}, #{CUS_GROUP6,jdbcType=CHAR}, 
+      #{CUS_GROUP7,jdbcType=CHAR}, #{CUS_GROUP8,jdbcType=CHAR}, #{CUS_GROUP9,jdbcType=CHAR}, 
+      #{CUS_GROUP10,jdbcType=CHAR}, #{PARTI_METH,jdbcType=CHAR}, #{PARTI_TYPE,jdbcType=CHAR}, 
+      #{PARTI_STRU,jdbcType=CHAR}, #{SOLD_RGN,jdbcType=CHAR}, #{CHNL_SCOPE,jdbcType=CHAR}, 
+      #{CHNL1,jdbcType=CHAR}, #{CHNL2,jdbcType=CHAR}, #{CHNL3,jdbcType=CHAR}, #{CHNL4,jdbcType=CHAR}, 
+      #{CHNL5,jdbcType=CHAR}, #{CHNL6,jdbcType=CHAR}, #{CHNL7,jdbcType=CHAR}, #{CHNL8,jdbcType=CHAR}, 
+      #{CHNL9,jdbcType=CHAR}, #{CHNL10,jdbcType=CHAR}, #{PRDT_CUST_INFO,jdbcType=VARCHAR}, 
+      #{PRDT_MARKT_GOAL,jdbcType=VARCHAR}, #{COMP_PRDT_DESC,jdbcType=VARCHAR}, #{PRDT_ADV_DESC,jdbcType=VARCHAR}, 
+      #{PRDT_FAV_INFO,jdbcType=VARCHAR}, #{PRDT_COUNTER,jdbcType=DECIMAL}, #{SOLD_NUM,jdbcType=DECIMAL}, 
+      #{SOLD_AMT,jdbcType=DECIMAL}, #{BEL_BR,jdbcType=DECIMAL}, #{LEVEL1,jdbcType=CHAR}, 
+      #{LEVEL2,jdbcType=CHAR}, #{LEVEL3,jdbcType=CHAR}, #{LEVEL4,jdbcType=CHAR}, #{LEVEL5,jdbcType=CHAR}, 
+      #{LEVEL6,jdbcType=CHAR}, #{LEVEL7,jdbcType=CHAR}, #{LEVEL8,jdbcType=CHAR}, #{LEVEL9,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gaoyang.loadparm.entity.Bptpdcd">
+    insert into bptpdcd
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="PRDT_CODE != null">
+        PRDT_CODE,
+      </if>
+      <if test="CUS_PER_FLG != null">
+        CUS_PER_FLG,
+      </if>
+      <if test="CUS_COM_FLG != null">
+        CUS_COM_FLG,
+      </if>
+      <if test="CUS_FIN_FLG != null">
+        CUS_FIN_FLG,
+      </if>
+      <if test="CUS_COM_SCOPE != null">
+        CUS_COM_SCOPE,
+      </if>
+      <if test="CUS_COM_TYP1 != null">
+        CUS_COM_TYP1,
+      </if>
+      <if test="CUS_COM_TYP2 != null">
+        CUS_COM_TYP2,
+      </if>
+      <if test="CUS_COM_TYP3 != null">
+        CUS_COM_TYP3,
+      </if>
+      <if test="CUS_COM_TYP4 != null">
+        CUS_COM_TYP4,
+      </if>
+      <if test="CUS_COM_TYP5 != null">
+        CUS_COM_TYP5,
+      </if>
+      <if test="CUS_COM_TYP6 != null">
+        CUS_COM_TYP6,
+      </if>
+      <if test="CUS_COM_TYP7 != null">
+        CUS_COM_TYP7,
+      </if>
+      <if test="CUS_COM_TYP8 != null">
+        CUS_COM_TYP8,
+      </if>
+      <if test="CUS_COM_TYP9 != null">
+        CUS_COM_TYP9,
+      </if>
+      <if test="CUS_COM_TYP10 != null">
+        CUS_COM_TYP10,
+      </if>
+      <if test="CUS_FIN_SCOPE != null">
+        CUS_FIN_SCOPE,
+      </if>
+      <if test="CUS_FIN_TYP1 != null">
+        CUS_FIN_TYP1,
+      </if>
+      <if test="CUS_FIN_TYP2 != null">
+        CUS_FIN_TYP2,
+      </if>
+      <if test="CUS_FIN_TYP3 != null">
+        CUS_FIN_TYP3,
+      </if>
+      <if test="CUS_FIN_TYP4 != null">
+        CUS_FIN_TYP4,
+      </if>
+      <if test="CUS_FIN_TYP5 != null">
+        CUS_FIN_TYP5,
+      </if>
+      <if test="CUS_FIN_TYP6 != null">
+        CUS_FIN_TYP6,
+      </if>
+      <if test="CUS_FIN_TYP7 != null">
+        CUS_FIN_TYP7,
+      </if>
+      <if test="CUS_FIN_TYP8 != null">
+        CUS_FIN_TYP8,
+      </if>
+      <if test="CUS_FIN_TYP9 != null">
+        CUS_FIN_TYP9,
+      </if>
+      <if test="CUS_FIN_TYP10 != null">
+        CUS_FIN_TYP10,
+      </if>
+      <if test="CUS_GROUP_SCOPE != null">
+        CUS_GROUP_SCOPE,
+      </if>
+      <if test="CUS_GROUP1 != null">
+        CUS_GROUP1,
+      </if>
+      <if test="CUS_GROUP2 != null">
+        CUS_GROUP2,
+      </if>
+      <if test="CUS_GROUP3 != null">
+        CUS_GROUP3,
+      </if>
+      <if test="CUS_GROUP4 != null">
+        CUS_GROUP4,
+      </if>
+      <if test="CUS_GROUP5 != null">
+        CUS_GROUP5,
+      </if>
+      <if test="CUS_GROUP6 != null">
+        CUS_GROUP6,
+      </if>
+      <if test="CUS_GROUP7 != null">
+        CUS_GROUP7,
+      </if>
+      <if test="CUS_GROUP8 != null">
+        CUS_GROUP8,
+      </if>
+      <if test="CUS_GROUP9 != null">
+        CUS_GROUP9,
+      </if>
+      <if test="CUS_GROUP10 != null">
+        CUS_GROUP10,
+      </if>
+      <if test="PARTI_METH != null">
+        PARTI_METH,
+      </if>
+      <if test="PARTI_TYPE != null">
+        PARTI_TYPE,
+      </if>
+      <if test="PARTI_STRU != null">
+        PARTI_STRU,
+      </if>
+      <if test="SOLD_RGN != null">
+        SOLD_RGN,
+      </if>
+      <if test="CHNL_SCOPE != null">
+        CHNL_SCOPE,
+      </if>
+      <if test="CHNL1 != null">
+        CHNL1,
+      </if>
+      <if test="CHNL2 != null">
+        CHNL2,
+      </if>
+      <if test="CHNL3 != null">
+        CHNL3,
+      </if>
+      <if test="CHNL4 != null">
+        CHNL4,
+      </if>
+      <if test="CHNL5 != null">
+        CHNL5,
+      </if>
+      <if test="CHNL6 != null">
+        CHNL6,
+      </if>
+      <if test="CHNL7 != null">
+        CHNL7,
+      </if>
+      <if test="CHNL8 != null">
+        CHNL8,
+      </if>
+      <if test="CHNL9 != null">
+        CHNL9,
+      </if>
+      <if test="CHNL10 != null">
+        CHNL10,
+      </if>
+      <if test="PRDT_CUST_INFO != null">
+        PRDT_CUST_INFO,
+      </if>
+      <if test="PRDT_MARKT_GOAL != null">
+        PRDT_MARKT_GOAL,
+      </if>
+      <if test="COMP_PRDT_DESC != null">
+        COMP_PRDT_DESC,
+      </if>
+      <if test="PRDT_ADV_DESC != null">
+        PRDT_ADV_DESC,
+      </if>
+      <if test="PRDT_FAV_INFO != null">
+        PRDT_FAV_INFO,
+      </if>
+      <if test="PRDT_COUNTER != null">
+        PRDT_COUNTER,
+      </if>
+      <if test="SOLD_NUM != null">
+        SOLD_NUM,
+      </if>
+      <if test="SOLD_AMT != null">
+        SOLD_AMT,
+      </if>
+      <if test="BEL_BR != null">
+        BEL_BR,
+      </if>
+      <if test="LEVEL1 != null">
+        LEVEL1,
+      </if>
+      <if test="LEVEL2 != null">
+        LEVEL2,
+      </if>
+      <if test="LEVEL3 != null">
+        LEVEL3,
+      </if>
+      <if test="LEVEL4 != null">
+        LEVEL4,
+      </if>
+      <if test="LEVEL5 != null">
+        LEVEL5,
+      </if>
+      <if test="LEVEL6 != null">
+        LEVEL6,
+      </if>
+      <if test="LEVEL7 != null">
+        LEVEL7,
+      </if>
+      <if test="LEVEL8 != null">
+        LEVEL8,
+      </if>
+      <if test="LEVEL9 != null">
+        LEVEL9,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="PRDT_CODE != null">
+        #{PRDT_CODE,jdbcType=CHAR},
+      </if>
+      <if test="CUS_PER_FLG != null">
+        #{CUS_PER_FLG,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_FLG != null">
+        #{CUS_COM_FLG,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_FLG != null">
+        #{CUS_FIN_FLG,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_SCOPE != null">
+        #{CUS_COM_SCOPE,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP1 != null">
+        #{CUS_COM_TYP1,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP2 != null">
+        #{CUS_COM_TYP2,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP3 != null">
+        #{CUS_COM_TYP3,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP4 != null">
+        #{CUS_COM_TYP4,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP5 != null">
+        #{CUS_COM_TYP5,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP6 != null">
+        #{CUS_COM_TYP6,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP7 != null">
+        #{CUS_COM_TYP7,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP8 != null">
+        #{CUS_COM_TYP8,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP9 != null">
+        #{CUS_COM_TYP9,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP10 != null">
+        #{CUS_COM_TYP10,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_SCOPE != null">
+        #{CUS_FIN_SCOPE,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP1 != null">
+        #{CUS_FIN_TYP1,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP2 != null">
+        #{CUS_FIN_TYP2,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP3 != null">
+        #{CUS_FIN_TYP3,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP4 != null">
+        #{CUS_FIN_TYP4,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP5 != null">
+        #{CUS_FIN_TYP5,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP6 != null">
+        #{CUS_FIN_TYP6,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP7 != null">
+        #{CUS_FIN_TYP7,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP8 != null">
+        #{CUS_FIN_TYP8,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP9 != null">
+        #{CUS_FIN_TYP9,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP10 != null">
+        #{CUS_FIN_TYP10,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP_SCOPE != null">
+        #{CUS_GROUP_SCOPE,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP1 != null">
+        #{CUS_GROUP1,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP2 != null">
+        #{CUS_GROUP2,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP3 != null">
+        #{CUS_GROUP3,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP4 != null">
+        #{CUS_GROUP4,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP5 != null">
+        #{CUS_GROUP5,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP6 != null">
+        #{CUS_GROUP6,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP7 != null">
+        #{CUS_GROUP7,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP8 != null">
+        #{CUS_GROUP8,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP9 != null">
+        #{CUS_GROUP9,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP10 != null">
+        #{CUS_GROUP10,jdbcType=CHAR},
+      </if>
+      <if test="PARTI_METH != null">
+        #{PARTI_METH,jdbcType=CHAR},
+      </if>
+      <if test="PARTI_TYPE != null">
+        #{PARTI_TYPE,jdbcType=CHAR},
+      </if>
+      <if test="PARTI_STRU != null">
+        #{PARTI_STRU,jdbcType=CHAR},
+      </if>
+      <if test="SOLD_RGN != null">
+        #{SOLD_RGN,jdbcType=CHAR},
+      </if>
+      <if test="CHNL_SCOPE != null">
+        #{CHNL_SCOPE,jdbcType=CHAR},
+      </if>
+      <if test="CHNL1 != null">
+        #{CHNL1,jdbcType=CHAR},
+      </if>
+      <if test="CHNL2 != null">
+        #{CHNL2,jdbcType=CHAR},
+      </if>
+      <if test="CHNL3 != null">
+        #{CHNL3,jdbcType=CHAR},
+      </if>
+      <if test="CHNL4 != null">
+        #{CHNL4,jdbcType=CHAR},
+      </if>
+      <if test="CHNL5 != null">
+        #{CHNL5,jdbcType=CHAR},
+      </if>
+      <if test="CHNL6 != null">
+        #{CHNL6,jdbcType=CHAR},
+      </if>
+      <if test="CHNL7 != null">
+        #{CHNL7,jdbcType=CHAR},
+      </if>
+      <if test="CHNL8 != null">
+        #{CHNL8,jdbcType=CHAR},
+      </if>
+      <if test="CHNL9 != null">
+        #{CHNL9,jdbcType=CHAR},
+      </if>
+      <if test="CHNL10 != null">
+        #{CHNL10,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_CUST_INFO != null">
+        #{PRDT_CUST_INFO,jdbcType=VARCHAR},
+      </if>
+      <if test="PRDT_MARKT_GOAL != null">
+        #{PRDT_MARKT_GOAL,jdbcType=VARCHAR},
+      </if>
+      <if test="COMP_PRDT_DESC != null">
+        #{COMP_PRDT_DESC,jdbcType=VARCHAR},
+      </if>
+      <if test="PRDT_ADV_DESC != null">
+        #{PRDT_ADV_DESC,jdbcType=VARCHAR},
+      </if>
+      <if test="PRDT_FAV_INFO != null">
+        #{PRDT_FAV_INFO,jdbcType=VARCHAR},
+      </if>
+      <if test="PRDT_COUNTER != null">
+        #{PRDT_COUNTER,jdbcType=DECIMAL},
+      </if>
+      <if test="SOLD_NUM != null">
+        #{SOLD_NUM,jdbcType=DECIMAL},
+      </if>
+      <if test="SOLD_AMT != null">
+        #{SOLD_AMT,jdbcType=DECIMAL},
+      </if>
+      <if test="BEL_BR != null">
+        #{BEL_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="LEVEL1 != null">
+        #{LEVEL1,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL2 != null">
+        #{LEVEL2,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL3 != null">
+        #{LEVEL3,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL4 != null">
+        #{LEVEL4,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL5 != null">
+        #{LEVEL5,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL6 != null">
+        #{LEVEL6,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL7 != null">
+        #{LEVEL7,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL8 != null">
+        #{LEVEL8,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL9 != null">
+        #{LEVEL9,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gaoyang.loadparm.entity.Bptpdcd">
+    update bptpdcd
+    <set>
+      <if test="CUS_PER_FLG != null">
+        CUS_PER_FLG = #{CUS_PER_FLG,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_FLG != null">
+        CUS_COM_FLG = #{CUS_COM_FLG,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_FLG != null">
+        CUS_FIN_FLG = #{CUS_FIN_FLG,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_SCOPE != null">
+        CUS_COM_SCOPE = #{CUS_COM_SCOPE,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP1 != null">
+        CUS_COM_TYP1 = #{CUS_COM_TYP1,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP2 != null">
+        CUS_COM_TYP2 = #{CUS_COM_TYP2,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP3 != null">
+        CUS_COM_TYP3 = #{CUS_COM_TYP3,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP4 != null">
+        CUS_COM_TYP4 = #{CUS_COM_TYP4,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP5 != null">
+        CUS_COM_TYP5 = #{CUS_COM_TYP5,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP6 != null">
+        CUS_COM_TYP6 = #{CUS_COM_TYP6,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP7 != null">
+        CUS_COM_TYP7 = #{CUS_COM_TYP7,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP8 != null">
+        CUS_COM_TYP8 = #{CUS_COM_TYP8,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP9 != null">
+        CUS_COM_TYP9 = #{CUS_COM_TYP9,jdbcType=CHAR},
+      </if>
+      <if test="CUS_COM_TYP10 != null">
+        CUS_COM_TYP10 = #{CUS_COM_TYP10,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_SCOPE != null">
+        CUS_FIN_SCOPE = #{CUS_FIN_SCOPE,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP1 != null">
+        CUS_FIN_TYP1 = #{CUS_FIN_TYP1,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP2 != null">
+        CUS_FIN_TYP2 = #{CUS_FIN_TYP2,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP3 != null">
+        CUS_FIN_TYP3 = #{CUS_FIN_TYP3,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP4 != null">
+        CUS_FIN_TYP4 = #{CUS_FIN_TYP4,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP5 != null">
+        CUS_FIN_TYP5 = #{CUS_FIN_TYP5,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP6 != null">
+        CUS_FIN_TYP6 = #{CUS_FIN_TYP6,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP7 != null">
+        CUS_FIN_TYP7 = #{CUS_FIN_TYP7,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP8 != null">
+        CUS_FIN_TYP8 = #{CUS_FIN_TYP8,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP9 != null">
+        CUS_FIN_TYP9 = #{CUS_FIN_TYP9,jdbcType=CHAR},
+      </if>
+      <if test="CUS_FIN_TYP10 != null">
+        CUS_FIN_TYP10 = #{CUS_FIN_TYP10,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP_SCOPE != null">
+        CUS_GROUP_SCOPE = #{CUS_GROUP_SCOPE,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP1 != null">
+        CUS_GROUP1 = #{CUS_GROUP1,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP2 != null">
+        CUS_GROUP2 = #{CUS_GROUP2,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP3 != null">
+        CUS_GROUP3 = #{CUS_GROUP3,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP4 != null">
+        CUS_GROUP4 = #{CUS_GROUP4,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP5 != null">
+        CUS_GROUP5 = #{CUS_GROUP5,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP6 != null">
+        CUS_GROUP6 = #{CUS_GROUP6,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP7 != null">
+        CUS_GROUP7 = #{CUS_GROUP7,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP8 != null">
+        CUS_GROUP8 = #{CUS_GROUP8,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP9 != null">
+        CUS_GROUP9 = #{CUS_GROUP9,jdbcType=CHAR},
+      </if>
+      <if test="CUS_GROUP10 != null">
+        CUS_GROUP10 = #{CUS_GROUP10,jdbcType=CHAR},
+      </if>
+      <if test="PARTI_METH != null">
+        PARTI_METH = #{PARTI_METH,jdbcType=CHAR},
+      </if>
+      <if test="PARTI_TYPE != null">
+        PARTI_TYPE = #{PARTI_TYPE,jdbcType=CHAR},
+      </if>
+      <if test="PARTI_STRU != null">
+        PARTI_STRU = #{PARTI_STRU,jdbcType=CHAR},
+      </if>
+      <if test="SOLD_RGN != null">
+        SOLD_RGN = #{SOLD_RGN,jdbcType=CHAR},
+      </if>
+      <if test="CHNL_SCOPE != null">
+        CHNL_SCOPE = #{CHNL_SCOPE,jdbcType=CHAR},
+      </if>
+      <if test="CHNL1 != null">
+        CHNL1 = #{CHNL1,jdbcType=CHAR},
+      </if>
+      <if test="CHNL2 != null">
+        CHNL2 = #{CHNL2,jdbcType=CHAR},
+      </if>
+      <if test="CHNL3 != null">
+        CHNL3 = #{CHNL3,jdbcType=CHAR},
+      </if>
+      <if test="CHNL4 != null">
+        CHNL4 = #{CHNL4,jdbcType=CHAR},
+      </if>
+      <if test="CHNL5 != null">
+        CHNL5 = #{CHNL5,jdbcType=CHAR},
+      </if>
+      <if test="CHNL6 != null">
+        CHNL6 = #{CHNL6,jdbcType=CHAR},
+      </if>
+      <if test="CHNL7 != null">
+        CHNL7 = #{CHNL7,jdbcType=CHAR},
+      </if>
+      <if test="CHNL8 != null">
+        CHNL8 = #{CHNL8,jdbcType=CHAR},
+      </if>
+      <if test="CHNL9 != null">
+        CHNL9 = #{CHNL9,jdbcType=CHAR},
+      </if>
+      <if test="CHNL10 != null">
+        CHNL10 = #{CHNL10,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_CUST_INFO != null">
+        PRDT_CUST_INFO = #{PRDT_CUST_INFO,jdbcType=VARCHAR},
+      </if>
+      <if test="PRDT_MARKT_GOAL != null">
+        PRDT_MARKT_GOAL = #{PRDT_MARKT_GOAL,jdbcType=VARCHAR},
+      </if>
+      <if test="COMP_PRDT_DESC != null">
+        COMP_PRDT_DESC = #{COMP_PRDT_DESC,jdbcType=VARCHAR},
+      </if>
+      <if test="PRDT_ADV_DESC != null">
+        PRDT_ADV_DESC = #{PRDT_ADV_DESC,jdbcType=VARCHAR},
+      </if>
+      <if test="PRDT_FAV_INFO != null">
+        PRDT_FAV_INFO = #{PRDT_FAV_INFO,jdbcType=VARCHAR},
+      </if>
+      <if test="PRDT_COUNTER != null">
+        PRDT_COUNTER = #{PRDT_COUNTER,jdbcType=DECIMAL},
+      </if>
+      <if test="SOLD_NUM != null">
+        SOLD_NUM = #{SOLD_NUM,jdbcType=DECIMAL},
+      </if>
+      <if test="SOLD_AMT != null">
+        SOLD_AMT = #{SOLD_AMT,jdbcType=DECIMAL},
+      </if>
+      <if test="BEL_BR != null">
+        BEL_BR = #{BEL_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="LEVEL1 != null">
+        LEVEL1 = #{LEVEL1,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL2 != null">
+        LEVEL2 = #{LEVEL2,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL3 != null">
+        LEVEL3 = #{LEVEL3,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL4 != null">
+        LEVEL4 = #{LEVEL4,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL5 != null">
+        LEVEL5 = #{LEVEL5,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL6 != null">
+        LEVEL6 = #{LEVEL6,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL7 != null">
+        LEVEL7 = #{LEVEL7,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL8 != null">
+        LEVEL8 = #{LEVEL8,jdbcType=CHAR},
+      </if>
+      <if test="LEVEL9 != null">
+        LEVEL9 = #{LEVEL9,jdbcType=CHAR},
+      </if>
+    </set>
+    where PRDT_CODE = #{PRDT_CODE,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gaoyang.loadparm.entity.Bptpdcd">
+    update bptpdcd
+    set CUS_PER_FLG = #{CUS_PER_FLG,jdbcType=CHAR},
+      CUS_COM_FLG = #{CUS_COM_FLG,jdbcType=CHAR},
+      CUS_FIN_FLG = #{CUS_FIN_FLG,jdbcType=CHAR},
+      CUS_COM_SCOPE = #{CUS_COM_SCOPE,jdbcType=CHAR},
+      CUS_COM_TYP1 = #{CUS_COM_TYP1,jdbcType=CHAR},
+      CUS_COM_TYP2 = #{CUS_COM_TYP2,jdbcType=CHAR},
+      CUS_COM_TYP3 = #{CUS_COM_TYP3,jdbcType=CHAR},
+      CUS_COM_TYP4 = #{CUS_COM_TYP4,jdbcType=CHAR},
+      CUS_COM_TYP5 = #{CUS_COM_TYP5,jdbcType=CHAR},
+      CUS_COM_TYP6 = #{CUS_COM_TYP6,jdbcType=CHAR},
+      CUS_COM_TYP7 = #{CUS_COM_TYP7,jdbcType=CHAR},
+      CUS_COM_TYP8 = #{CUS_COM_TYP8,jdbcType=CHAR},
+      CUS_COM_TYP9 = #{CUS_COM_TYP9,jdbcType=CHAR},
+      CUS_COM_TYP10 = #{CUS_COM_TYP10,jdbcType=CHAR},
+      CUS_FIN_SCOPE = #{CUS_FIN_SCOPE,jdbcType=CHAR},
+      CUS_FIN_TYP1 = #{CUS_FIN_TYP1,jdbcType=CHAR},
+      CUS_FIN_TYP2 = #{CUS_FIN_TYP2,jdbcType=CHAR},
+      CUS_FIN_TYP3 = #{CUS_FIN_TYP3,jdbcType=CHAR},
+      CUS_FIN_TYP4 = #{CUS_FIN_TYP4,jdbcType=CHAR},
+      CUS_FIN_TYP5 = #{CUS_FIN_TYP5,jdbcType=CHAR},
+      CUS_FIN_TYP6 = #{CUS_FIN_TYP6,jdbcType=CHAR},
+      CUS_FIN_TYP7 = #{CUS_FIN_TYP7,jdbcType=CHAR},
+      CUS_FIN_TYP8 = #{CUS_FIN_TYP8,jdbcType=CHAR},
+      CUS_FIN_TYP9 = #{CUS_FIN_TYP9,jdbcType=CHAR},
+      CUS_FIN_TYP10 = #{CUS_FIN_TYP10,jdbcType=CHAR},
+      CUS_GROUP_SCOPE = #{CUS_GROUP_SCOPE,jdbcType=CHAR},
+      CUS_GROUP1 = #{CUS_GROUP1,jdbcType=CHAR},
+      CUS_GROUP2 = #{CUS_GROUP2,jdbcType=CHAR},
+      CUS_GROUP3 = #{CUS_GROUP3,jdbcType=CHAR},
+      CUS_GROUP4 = #{CUS_GROUP4,jdbcType=CHAR},
+      CUS_GROUP5 = #{CUS_GROUP5,jdbcType=CHAR},
+      CUS_GROUP6 = #{CUS_GROUP6,jdbcType=CHAR},
+      CUS_GROUP7 = #{CUS_GROUP7,jdbcType=CHAR},
+      CUS_GROUP8 = #{CUS_GROUP8,jdbcType=CHAR},
+      CUS_GROUP9 = #{CUS_GROUP9,jdbcType=CHAR},
+      CUS_GROUP10 = #{CUS_GROUP10,jdbcType=CHAR},
+      PARTI_METH = #{PARTI_METH,jdbcType=CHAR},
+      PARTI_TYPE = #{PARTI_TYPE,jdbcType=CHAR},
+      PARTI_STRU = #{PARTI_STRU,jdbcType=CHAR},
+      SOLD_RGN = #{SOLD_RGN,jdbcType=CHAR},
+      CHNL_SCOPE = #{CHNL_SCOPE,jdbcType=CHAR},
+      CHNL1 = #{CHNL1,jdbcType=CHAR},
+      CHNL2 = #{CHNL2,jdbcType=CHAR},
+      CHNL3 = #{CHNL3,jdbcType=CHAR},
+      CHNL4 = #{CHNL4,jdbcType=CHAR},
+      CHNL5 = #{CHNL5,jdbcType=CHAR},
+      CHNL6 = #{CHNL6,jdbcType=CHAR},
+      CHNL7 = #{CHNL7,jdbcType=CHAR},
+      CHNL8 = #{CHNL8,jdbcType=CHAR},
+      CHNL9 = #{CHNL9,jdbcType=CHAR},
+      CHNL10 = #{CHNL10,jdbcType=CHAR},
+      PRDT_CUST_INFO = #{PRDT_CUST_INFO,jdbcType=VARCHAR},
+      PRDT_MARKT_GOAL = #{PRDT_MARKT_GOAL,jdbcType=VARCHAR},
+      COMP_PRDT_DESC = #{COMP_PRDT_DESC,jdbcType=VARCHAR},
+      PRDT_ADV_DESC = #{PRDT_ADV_DESC,jdbcType=VARCHAR},
+      PRDT_FAV_INFO = #{PRDT_FAV_INFO,jdbcType=VARCHAR},
+      PRDT_COUNTER = #{PRDT_COUNTER,jdbcType=DECIMAL},
+      SOLD_NUM = #{SOLD_NUM,jdbcType=DECIMAL},
+      SOLD_AMT = #{SOLD_AMT,jdbcType=DECIMAL},
+      BEL_BR = #{BEL_BR,jdbcType=DECIMAL},
+      LEVEL1 = #{LEVEL1,jdbcType=CHAR},
+      LEVEL2 = #{LEVEL2,jdbcType=CHAR},
+      LEVEL3 = #{LEVEL3,jdbcType=CHAR},
+      LEVEL4 = #{LEVEL4,jdbcType=CHAR},
+      LEVEL5 = #{LEVEL5,jdbcType=CHAR},
+      LEVEL6 = #{LEVEL6,jdbcType=CHAR},
+      LEVEL7 = #{LEVEL7,jdbcType=CHAR},
+      LEVEL8 = #{LEVEL8,jdbcType=CHAR},
+      LEVEL9 = #{LEVEL9,jdbcType=CHAR}
+    where PRDT_CODE = #{PRDT_CODE,jdbcType=CHAR}
+  </update>
+</mapper>

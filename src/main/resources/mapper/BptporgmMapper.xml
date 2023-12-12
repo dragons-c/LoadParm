@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaoyang.loadparm.mapper.BptporgmMapper">
+  <resultMap id="BaseResultMap" type="com.gaoyang.loadparm.entity.Bptporgm">
+    <id column="TYPE" jdbcType="CHAR" property="TYPE" />
+    <id column="CODE" jdbcType="CHAR" property="CODE" />
+    <result column="EFF_DATE" jdbcType="DECIMAL" property="EFF_DATE" />
+    <result column="EXP_DATE" jdbcType="DECIMAL" property="EXP_DATE" />
+    <result column="DESC" jdbcType="CHAR" property="DESC" />
+    <result column="CDESC" jdbcType="CHAR" property="CDESC" />
+    <result column="SUPR_BR" jdbcType="DECIMAL" property="SUPR_BR" />
+    <result column="ATTR" jdbcType="CHAR" property="ATTR" />
+    <result column="LVL" jdbcType="CHAR" property="LVL" />
+    <result column="TYP" jdbcType="CHAR" property="TYP" />
+    <result column="EFF_DT" jdbcType="DECIMAL" property="EFF_DT" />
+    <result column="EXP_DT" jdbcType="DECIMAL" property="EXP_DT" />
+    <result column="CHN_NM" jdbcType="CHAR" property="CHN_NM" />
+    <result column="CHN_ADDR" jdbcType="CHAR" property="CHN_ADDR" />
+    <result column="ENG_NM" jdbcType="CHAR" property="ENG_NM" />
+    <result column="ENG_ADDR" jdbcType="CHAR" property="ENG_ADDR" />
+    <result column="ABBR" jdbcType="CHAR" property="ABBR" />
+    <result column="LINK_MAN" jdbcType="CHAR" property="LINK_MAN" />
+    <result column="LINK_TEL" jdbcType="CHAR" property="LINK_TEL" />
+    <result column="POST" jdbcType="CHAR" property="POST" />
+    <result column="TLR_MAX" jdbcType="CHAR" property="TLR_MAX" />
+    <result column="ATH_MAX" jdbcType="CHAR" property="ATH_MAX" />
+    <result column="FX_BUSI" jdbcType="CHAR" property="FX_BUSI" />
+    <result column="CNAP_NO" jdbcType="DECIMAL" property="CNAP_NO" />
+    <result column="ACCT_FLG" jdbcType="CHAR" property="ACCT_FLG" />
+    <result column="OPN_DT" jdbcType="DECIMAL" property="OPN_DT" />
+    <result column="RUN_HDAY" jdbcType="CHAR" property="RUN_HDAY" />
+    <result column="RUN_MODE" jdbcType="CHAR" property="RUN_MODE" />
+    <result column="CALD_CD" jdbcType="CHAR" property="CALD_CD" />
+    <result column="OPN_TM" jdbcType="DECIMAL" property="OPN_TM" />
+    <result column="CLS_TM" jdbcType="DECIMAL" property="CLS_TM" />
+    <result column="HOPN_TM" jdbcType="DECIMAL" property="HOPN_TM" />
+    <result column="HCLS_TM" jdbcType="DECIMAL" property="HCLS_TM" />
+    <result column="UPT_DT" jdbcType="DECIMAL" property="UPT_DT" />
+    <result column="UPT_TLR" jdbcType="CHAR" property="UPT_TLR" />
+    <result column="FAX" jdbcType="CHAR" property="FAX" />
+    <result column="TELEX" jdbcType="CHAR" property="TELEX" />
+    <result column="PRO_FLG" jdbcType="CHAR" property="PRO_FLG" />
+    <result column="COST_FLG" jdbcType="CHAR" property="COST_FLG" />
+    <result column="GL_MST" jdbcType="DECIMAL" property="GL_MST" />
+    <result column="DEF_PTR" jdbcType="CHAR" property="DEF_PTR" />
+    <result column="PAY_PTR" jdbcType="CHAR" property="PAY_PTR" />
+    <result column="CFM_PTR" jdbcType="CHAR" property="CFM_PTR" />
+    <result column="SWF_ID" jdbcType="CHAR" property="SWF_ID" />
+    <result column="BIC_NO" jdbcType="CHAR" property="BIC_NO" />
+    <result column="IBAN_NO" jdbcType="CHAR" property="IBAN_NO" />
+    <result column="CI_LEN" jdbcType="DECIMAL" property="CI_LEN" />
+    <result column="COUN_CD" jdbcType="CHAR" property="COUN_CD" />
+    <result column="CITY_CD" jdbcType="CHAR" property="CITY_CD" />
+    <result column="UNSCH_HOL" jdbcType="CHAR" property="UNSCH_HOL" />
+    <result column="UNSCH_HOL_TM" jdbcType="DECIMAL" property="UNSCH_HOL_TM" />
+    <result column="OPN_CHECK_FLG" jdbcType="CHAR" property="OPN_CHECK_FLG" />
+    <result column="VOU_CHECK_FLG" jdbcType="CHAR" property="VOU_CHECK_FLG" />
+    <result column="INT_TAX_FLG" jdbcType="CHAR" property="INT_TAX_FLG" />
+    <result column="ERP_BRAN" jdbcType="DECIMAL" property="ERP_BRAN" />
+    <result column="ORG_FLG" jdbcType="CHAR" property="ORG_FLG" />
+    <result column="BRANCH_BR" jdbcType="DECIMAL" property="BRANCH_BR" />
+    <result column="FTZ_CD" jdbcType="CHAR" property="FTZ_CD" />
+    <result column="BOP_CD" jdbcType="CHAR" property="BOP_CD" />
+    <result column="CIC_CD" jdbcType="CHAR" property="CIC_CD" />
+    <result column="FII_CD" jdbcType="CHAR" property="FII_CD" />
+    <result column="UPD_DATE" jdbcType="DECIMAL" property="UPD_DATE" />
+    <result column="UPD_BR" jdbcType="DECIMAL" property="UPD_BR" />
+    <result column="UPD_TLR" jdbcType="CHAR" property="UPD_TLR" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    TYPE, CODE, EFF_DATE, EXP_DATE, DESC, CDESC, SUPR_BR, ATTR, LVL, TYP, EFF_DT, EXP_DT, 
+    CHN_NM, CHN_ADDR, ENG_NM, ENG_ADDR, ABBR, LINK_MAN, LINK_TEL, POST, TLR_MAX, ATH_MAX, 
+    FX_BUSI, CNAP_NO, ACCT_FLG, OPN_DT, RUN_HDAY, RUN_MODE, CALD_CD, OPN_TM, CLS_TM, 
+    HOPN_TM, HCLS_TM, UPT_DT, UPT_TLR, FAX, TELEX, PRO_FLG, COST_FLG, GL_MST, DEF_PTR, 
+    PAY_PTR, CFM_PTR, SWF_ID, BIC_NO, IBAN_NO, CI_LEN, COUN_CD, CITY_CD, UNSCH_HOL, UNSCH_HOL_TM, 
+    OPN_CHECK_FLG, VOU_CHECK_FLG, INT_TAX_FLG, ERP_BRAN, ORG_FLG, BRANCH_BR, FTZ_CD, 
+    BOP_CD, CIC_CD, FII_CD, UPD_DATE, UPD_BR, UPD_TLR, TS
+  </sql>
+  <select id="selectByExample" parameterType="com.gaoyang.loadparm.entity.BptporgmExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from bptporgm
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.gaoyang.loadparm.entity.BptporgmKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bptporgm
+    where TYPE = #{TYPE,jdbcType=CHAR}
+      and CODE = #{CODE,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.gaoyang.loadparm.entity.BptporgmKey">
+    delete from bptporgm
+    where TYPE = #{TYPE,jdbcType=CHAR}
+      and CODE = #{CODE,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.gaoyang.loadparm.entity.Bptporgm">
+    insert into bptporgm (TYPE, CODE, EFF_DATE, 
+      EXP_DATE, DESC, CDESC, SUPR_BR, 
+      ATTR, LVL, TYP, EFF_DT, 
+      EXP_DT, CHN_NM, CHN_ADDR, 
+      ENG_NM, ENG_ADDR, ABBR, LINK_MAN, 
+      LINK_TEL, POST, TLR_MAX, ATH_MAX, 
+      FX_BUSI, CNAP_NO, ACCT_FLG, 
+      OPN_DT, RUN_HDAY, RUN_MODE, 
+      CALD_CD, OPN_TM, CLS_TM, 
+      HOPN_TM, HCLS_TM, UPT_DT, 
+      UPT_TLR, FAX, TELEX, PRO_FLG, 
+      COST_FLG, GL_MST, DEF_PTR, 
+      PAY_PTR, CFM_PTR, SWF_ID, BIC_NO, 
+      IBAN_NO, CI_LEN, COUN_CD, 
+      CITY_CD, UNSCH_HOL, UNSCH_HOL_TM, 
+      OPN_CHECK_FLG, VOU_CHECK_FLG, INT_TAX_FLG, 
+      ERP_BRAN, ORG_FLG, BRANCH_BR, 
+      FTZ_CD, BOP_CD, CIC_CD, FII_CD, 
+      UPD_DATE, UPD_BR, UPD_TLR, 
+      TS)
+    values (#{TYPE,jdbcType=CHAR}, #{CODE,jdbcType=CHAR}, #{EFF_DATE,jdbcType=DECIMAL}, 
+      #{EXP_DATE,jdbcType=DECIMAL}, #{DESC,jdbcType=CHAR}, #{CDESC,jdbcType=CHAR}, #{SUPR_BR,jdbcType=DECIMAL}, 
+      #{ATTR,jdbcType=CHAR}, #{LVL,jdbcType=CHAR}, #{TYP,jdbcType=CHAR}, #{EFF_DT,jdbcType=DECIMAL}, 
+      #{EXP_DT,jdbcType=DECIMAL}, #{CHN_NM,jdbcType=CHAR}, #{CHN_ADDR,jdbcType=CHAR}, 
+      #{ENG_NM,jdbcType=CHAR}, #{ENG_ADDR,jdbcType=CHAR}, #{ABBR,jdbcType=CHAR}, #{LINK_MAN,jdbcType=CHAR}, 
+      #{LINK_TEL,jdbcType=CHAR}, #{POST,jdbcType=CHAR}, #{TLR_MAX,jdbcType=CHAR}, #{ATH_MAX,jdbcType=CHAR}, 
+      #{FX_BUSI,jdbcType=CHAR}, #{CNAP_NO,jdbcType=DECIMAL}, #{ACCT_FLG,jdbcType=CHAR}, 
+      #{OPN_DT,jdbcType=DECIMAL}, #{RUN_HDAY,jdbcType=CHAR}, #{RUN_MODE,jdbcType=CHAR}, 
+      #{CALD_CD,jdbcType=CHAR}, #{OPN_TM,jdbcType=DECIMAL}, #{CLS_TM,jdbcType=DECIMAL}, 
+      #{HOPN_TM,jdbcType=DECIMAL}, #{HCLS_TM,jdbcType=DECIMAL}, #{UPT_DT,jdbcType=DECIMAL}, 
+      #{UPT_TLR,jdbcType=CHAR}, #{FAX,jdbcType=CHAR}, #{TELEX,jdbcType=CHAR}, #{PRO_FLG,jdbcType=CHAR}, 
+      #{COST_FLG,jdbcType=CHAR}, #{GL_MST,jdbcType=DECIMAL}, #{DEF_PTR,jdbcType=CHAR}, 
+      #{PAY_PTR,jdbcType=CHAR}, #{CFM_PTR,jdbcType=CHAR}, #{SWF_ID,jdbcType=CHAR}, #{BIC_NO,jdbcType=CHAR}, 
+      #{IBAN_NO,jdbcType=CHAR}, #{CI_LEN,jdbcType=DECIMAL}, #{COUN_CD,jdbcType=CHAR}, 
+      #{CITY_CD,jdbcType=CHAR}, #{UNSCH_HOL,jdbcType=CHAR}, #{UNSCH_HOL_TM,jdbcType=DECIMAL}, 
+      #{OPN_CHECK_FLG,jdbcType=CHAR}, #{VOU_CHECK_FLG,jdbcType=CHAR}, #{INT_TAX_FLG,jdbcType=CHAR}, 
+      #{ERP_BRAN,jdbcType=DECIMAL}, #{ORG_FLG,jdbcType=CHAR}, #{BRANCH_BR,jdbcType=DECIMAL}, 
+      #{FTZ_CD,jdbcType=CHAR}, #{BOP_CD,jdbcType=CHAR}, #{CIC_CD,jdbcType=CHAR}, #{FII_CD,jdbcType=CHAR}, 
+      #{UPD_DATE,jdbcType=DECIMAL}, #{UPD_BR,jdbcType=DECIMAL}, #{UPD_TLR,jdbcType=CHAR}, 
+      #{TS,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gaoyang.loadparm.entity.Bptporgm">
+    insert into bptporgm
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="TYPE != null">
+        TYPE,
+      </if>
+      <if test="CODE != null">
+        CODE,
+      </if>
+      <if test="EFF_DATE != null">
+        EFF_DATE,
+      </if>
+      <if test="EXP_DATE != null">
+        EXP_DATE,
+      </if>
+      <if test="DESC != null">
+        DESC,
+      </if>
+      <if test="CDESC != null">
+        CDESC,
+      </if>
+      <if test="SUPR_BR != null">
+        SUPR_BR,
+      </if>
+      <if test="ATTR != null">
+        ATTR,
+      </if>
+      <if test="LVL != null">
+        LVL,
+      </if>
+      <if test="TYP != null">
+        TYP,
+      </if>
+      <if test="EFF_DT != null">
+        EFF_DT,
+      </if>
+      <if test="EXP_DT != null">
+        EXP_DT,
+      </if>
+      <if test="CHN_NM != null">
+        CHN_NM,
+      </if>
+      <if test="CHN_ADDR != null">
+        CHN_ADDR,
+      </if>
+      <if test="ENG_NM != null">
+        ENG_NM,
+      </if>
+      <if test="ENG_ADDR != null">
+        ENG_ADDR,
+      </if>
+      <if test="ABBR != null">
+        ABBR,
+      </if>
+      <if test="LINK_MAN != null">
+        LINK_MAN,
+      </if>
+      <if test="LINK_TEL != null">
+        LINK_TEL,
+      </if>
+      <if test="POST != null">
+        POST,
+      </if>
+      <if test="TLR_MAX != null">
+        TLR_MAX,
+      </if>
+      <if test="ATH_MAX != null">
+        ATH_MAX,
+      </if>
+      <if test="FX_BUSI != null">
+        FX_BUSI,
+      </if>
+      <if test="CNAP_NO != null">
+        CNAP_NO,
+      </if>
+      <if test="ACCT_FLG != null">
+        ACCT_FLG,
+      </if>
+      <if test="OPN_DT != null">
+        OPN_DT,
+      </if>
+      <if test="RUN_HDAY != null">
+        RUN_HDAY,
+      </if>
+      <if test="RUN_MODE != null">
+        RUN_MODE,
+      </if>
+      <if test="CALD_CD != null">
+        CALD_CD,
+      </if>
+      <if test="OPN_TM != null">
+        OPN_TM,
+      </if>
+      <if test="CLS_TM != null">
+        CLS_TM,
+      </if>
+      <if test="HOPN_TM != null">
+        HOPN_TM,
+      </if>
+      <if test="HCLS_TM != null">
+        HCLS_TM,
+      </if>
+      <if test="UPT_DT != null">
+        UPT_DT,
+      </if>
+      <if test="UPT_TLR != null">
+        UPT_TLR,
+      </if>
+      <if test="FAX != null">
+        FAX,
+      </if>
+      <if test="TELEX != null">
+        TELEX,
+      </if>
+      <if test="PRO_FLG != null">
+        PRO_FLG,
+      </if>
+      <if test="COST_FLG != null">
+        COST_FLG,
+      </if>
+      <if test="GL_MST != null">
+        GL_MST,
+      </if>
+      <if test="DEF_PTR != null">
+        DEF_PTR,
+      </if>
+      <if test="PAY_PTR != null">
+        PAY_PTR,
+      </if>
+      <if test="CFM_PTR != null">
+        CFM_PTR,
+      </if>
+      <if test="SWF_ID != null">
+        SWF_ID,
+      </if>
+      <if test="BIC_NO != null">
+        BIC_NO,
+      </if>
+      <if test="IBAN_NO != null">
+        IBAN_NO,
+      </if>
+      <if test="CI_LEN != null">
+        CI_LEN,
+      </if>
+      <if test="COUN_CD != null">
+        COUN_CD,
+      </if>
+      <if test="CITY_CD != null">
+        CITY_CD,
+      </if>
+      <if test="UNSCH_HOL != null">
+        UNSCH_HOL,
+      </if>
+      <if test="UNSCH_HOL_TM != null">
+        UNSCH_HOL_TM,
+      </if>
+      <if test="OPN_CHECK_FLG != null">
+        OPN_CHECK_FLG,
+      </if>
+      <if test="VOU_CHECK_FLG != null">
+        VOU_CHECK_FLG,
+      </if>
+      <if test="INT_TAX_FLG != null">
+        INT_TAX_FLG,
+      </if>
+      <if test="ERP_BRAN != null">
+        ERP_BRAN,
+      </if>
+      <if test="ORG_FLG != null">
+        ORG_FLG,
+      </if>
+      <if test="BRANCH_BR != null">
+        BRANCH_BR,
+      </if>
+      <if test="FTZ_CD != null">
+        FTZ_CD,
+      </if>
+      <if test="BOP_CD != null">
+        BOP_CD,
+      </if>
+      <if test="CIC_CD != null">
+        CIC_CD,
+      </if>
+      <if test="FII_CD != null">
+        FII_CD,
+      </if>
+      <if test="UPD_DATE != null">
+        UPD_DATE,
+      </if>
+      <if test="UPD_BR != null">
+        UPD_BR,
+      </if>
+      <if test="UPD_TLR != null">
+        UPD_TLR,
+      </if>
+      <if test="TS != null">
+        TS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="TYPE != null">
+        #{TYPE,jdbcType=CHAR},
+      </if>
+      <if test="CODE != null">
+        #{CODE,jdbcType=CHAR},
+      </if>
+      <if test="EFF_DATE != null">
+        #{EFF_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="EXP_DATE != null">
+        #{EXP_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="DESC != null">
+        #{DESC,jdbcType=CHAR},
+      </if>
+      <if test="CDESC != null">
+        #{CDESC,jdbcType=CHAR},
+      </if>
+      <if test="SUPR_BR != null">
+        #{SUPR_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="ATTR != null">
+        #{ATTR,jdbcType=CHAR},
+      </if>
+      <if test="LVL != null">
+        #{LVL,jdbcType=CHAR},
+      </if>
+      <if test="TYP != null">
+        #{TYP,jdbcType=CHAR},
+      </if>
+      <if test="EFF_DT != null">
+        #{EFF_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="EXP_DT != null">
+        #{EXP_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="CHN_NM != null">
+        #{CHN_NM,jdbcType=CHAR},
+      </if>
+      <if test="CHN_ADDR != null">
+        #{CHN_ADDR,jdbcType=CHAR},
+      </if>
+      <if test="ENG_NM != null">
+        #{ENG_NM,jdbcType=CHAR},
+      </if>
+      <if test="ENG_ADDR != null">
+        #{ENG_ADDR,jdbcType=CHAR},
+      </if>
+      <if test="ABBR != null">
+        #{ABBR,jdbcType=CHAR},
+      </if>
+      <if test="LINK_MAN != null">
+        #{LINK_MAN,jdbcType=CHAR},
+      </if>
+      <if test="LINK_TEL != null">
+        #{LINK_TEL,jdbcType=CHAR},
+      </if>
+      <if test="POST != null">
+        #{POST,jdbcType=CHAR},
+      </if>
+      <if test="TLR_MAX != null">
+        #{TLR_MAX,jdbcType=CHAR},
+      </if>
+      <if test="ATH_MAX != null">
+        #{ATH_MAX,jdbcType=CHAR},
+      </if>
+      <if test="FX_BUSI != null">
+        #{FX_BUSI,jdbcType=CHAR},
+      </if>
+      <if test="CNAP_NO != null">
+        #{CNAP_NO,jdbcType=DECIMAL},
+      </if>
+      <if test="ACCT_FLG != null">
+        #{ACCT_FLG,jdbcType=CHAR},
+      </if>
+      <if test="OPN_DT != null">
+        #{OPN_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="RUN_HDAY != null">
+        #{RUN_HDAY,jdbcType=CHAR},
+      </if>
+      <if test="RUN_MODE != null">
+        #{RUN_MODE,jdbcType=CHAR},
+      </if>
+      <if test="CALD_CD != null">
+        #{CALD_CD,jdbcType=CHAR},
+      </if>
+      <if test="OPN_TM != null">
+        #{OPN_TM,jdbcType=DECIMAL},
+      </if>
+      <if test="CLS_TM != null">
+        #{CLS_TM,jdbcType=DECIMAL},
+      </if>
+      <if test="HOPN_TM != null">
+        #{HOPN_TM,jdbcType=DECIMAL},
+      </if>
+      <if test="HCLS_TM != null">
+        #{HCLS_TM,jdbcType=DECIMAL},
+      </if>
+      <if test="UPT_DT != null">
+        #{UPT_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="UPT_TLR != null">
+        #{UPT_TLR,jdbcType=CHAR},
+      </if>
+      <if test="FAX != null">
+        #{FAX,jdbcType=CHAR},
+      </if>
+      <if test="TELEX != null">
+        #{TELEX,jdbcType=CHAR},
+      </if>
+      <if test="PRO_FLG != null">
+        #{PRO_FLG,jdbcType=CHAR},
+      </if>
+      <if test="COST_FLG != null">
+        #{COST_FLG,jdbcType=CHAR},
+      </if>
+      <if test="GL_MST != null">
+        #{GL_MST,jdbcType=DECIMAL},
+      </if>
+      <if test="DEF_PTR != null">
+        #{DEF_PTR,jdbcType=CHAR},
+      </if>
+      <if test="PAY_PTR != null">
+        #{PAY_PTR,jdbcType=CHAR},
+      </if>
+      <if test="CFM_PTR != null">
+        #{CFM_PTR,jdbcType=CHAR},
+      </if>
+      <if test="SWF_ID != null">
+        #{SWF_ID,jdbcType=CHAR},
+      </if>
+      <if test="BIC_NO != null">
+        #{BIC_NO,jdbcType=CHAR},
+      </if>
+      <if test="IBAN_NO != null">
+        #{IBAN_NO,jdbcType=CHAR},
+      </if>
+      <if test="CI_LEN != null">
+        #{CI_LEN,jdbcType=DECIMAL},
+      </if>
+      <if test="COUN_CD != null">
+        #{COUN_CD,jdbcType=CHAR},
+      </if>
+      <if test="CITY_CD != null">
+        #{CITY_CD,jdbcType=CHAR},
+      </if>
+      <if test="UNSCH_HOL != null">
+        #{UNSCH_HOL,jdbcType=CHAR},
+      </if>
+      <if test="UNSCH_HOL_TM != null">
+        #{UNSCH_HOL_TM,jdbcType=DECIMAL},
+      </if>
+      <if test="OPN_CHECK_FLG != null">
+        #{OPN_CHECK_FLG,jdbcType=CHAR},
+      </if>
+      <if test="VOU_CHECK_FLG != null">
+        #{VOU_CHECK_FLG,jdbcType=CHAR},
+      </if>
+      <if test="INT_TAX_FLG != null">
+        #{INT_TAX_FLG,jdbcType=CHAR},
+      </if>
+      <if test="ERP_BRAN != null">
+        #{ERP_BRAN,jdbcType=DECIMAL},
+      </if>
+      <if test="ORG_FLG != null">
+        #{ORG_FLG,jdbcType=CHAR},
+      </if>
+      <if test="BRANCH_BR != null">
+        #{BRANCH_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="FTZ_CD != null">
+        #{FTZ_CD,jdbcType=CHAR},
+      </if>
+      <if test="BOP_CD != null">
+        #{BOP_CD,jdbcType=CHAR},
+      </if>
+      <if test="CIC_CD != null">
+        #{CIC_CD,jdbcType=CHAR},
+      </if>
+      <if test="FII_CD != null">
+        #{FII_CD,jdbcType=CHAR},
+      </if>
+      <if test="UPD_DATE != null">
+        #{UPD_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_BR != null">
+        #{UPD_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_TLR != null">
+        #{UPD_TLR,jdbcType=CHAR},
+      </if>
+      <if test="TS != null">
+        #{TS,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gaoyang.loadparm.entity.Bptporgm">
+    update bptporgm
+    <set>
+      <if test="EFF_DATE != null">
+        EFF_DATE = #{EFF_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="EXP_DATE != null">
+        EXP_DATE = #{EXP_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="DESC != null">
+        DESC = #{DESC,jdbcType=CHAR},
+      </if>
+      <if test="CDESC != null">
+        CDESC = #{CDESC,jdbcType=CHAR},
+      </if>
+      <if test="SUPR_BR != null">
+        SUPR_BR = #{SUPR_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="ATTR != null">
+        ATTR = #{ATTR,jdbcType=CHAR},
+      </if>
+      <if test="LVL != null">
+        LVL = #{LVL,jdbcType=CHAR},
+      </if>
+      <if test="TYP != null">
+        TYP = #{TYP,jdbcType=CHAR},
+      </if>
+      <if test="EFF_DT != null">
+        EFF_DT = #{EFF_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="EXP_DT != null">
+        EXP_DT = #{EXP_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="CHN_NM != null">
+        CHN_NM = #{CHN_NM,jdbcType=CHAR},
+      </if>
+      <if test="CHN_ADDR != null">
+        CHN_ADDR = #{CHN_ADDR,jdbcType=CHAR},
+      </if>
+      <if test="ENG_NM != null">
+        ENG_NM = #{ENG_NM,jdbcType=CHAR},
+      </if>
+      <if test="ENG_ADDR != null">
+        ENG_ADDR = #{ENG_ADDR,jdbcType=CHAR},
+      </if>
+      <if test="ABBR != null">
+        ABBR = #{ABBR,jdbcType=CHAR},
+      </if>
+      <if test="LINK_MAN != null">
+        LINK_MAN = #{LINK_MAN,jdbcType=CHAR},
+      </if>
+      <if test="LINK_TEL != null">
+        LINK_TEL = #{LINK_TEL,jdbcType=CHAR},
+      </if>
+      <if test="POST != null">
+        POST = #{POST,jdbcType=CHAR},
+      </if>
+      <if test="TLR_MAX != null">
+        TLR_MAX = #{TLR_MAX,jdbcType=CHAR},
+      </if>
+      <if test="ATH_MAX != null">
+        ATH_MAX = #{ATH_MAX,jdbcType=CHAR},
+      </if>
+      <if test="FX_BUSI != null">
+        FX_BUSI = #{FX_BUSI,jdbcType=CHAR},
+      </if>
+      <if test="CNAP_NO != null">
+        CNAP_NO = #{CNAP_NO,jdbcType=DECIMAL},
+      </if>
+      <if test="ACCT_FLG != null">
+        ACCT_FLG = #{ACCT_FLG,jdbcType=CHAR},
+      </if>
+      <if test="OPN_DT != null">
+        OPN_DT = #{OPN_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="RUN_HDAY != null">
+        RUN_HDAY = #{RUN_HDAY,jdbcType=CHAR},
+      </if>
+      <if test="RUN_MODE != null">
+        RUN_MODE = #{RUN_MODE,jdbcType=CHAR},
+      </if>
+      <if test="CALD_CD != null">
+        CALD_CD = #{CALD_CD,jdbcType=CHAR},
+      </if>
+      <if test="OPN_TM != null">
+        OPN_TM = #{OPN_TM,jdbcType=DECIMAL},
+      </if>
+      <if test="CLS_TM != null">
+        CLS_TM = #{CLS_TM,jdbcType=DECIMAL},
+      </if>
+      <if test="HOPN_TM != null">
+        HOPN_TM = #{HOPN_TM,jdbcType=DECIMAL},
+      </if>
+      <if test="HCLS_TM != null">
+        HCLS_TM = #{HCLS_TM,jdbcType=DECIMAL},
+      </if>
+      <if test="UPT_DT != null">
+        UPT_DT = #{UPT_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="UPT_TLR != null">
+        UPT_TLR = #{UPT_TLR,jdbcType=CHAR},
+      </if>
+      <if test="FAX != null">
+        FAX = #{FAX,jdbcType=CHAR},
+      </if>
+      <if test="TELEX != null">
+        TELEX = #{TELEX,jdbcType=CHAR},
+      </if>
+      <if test="PRO_FLG != null">
+        PRO_FLG = #{PRO_FLG,jdbcType=CHAR},
+      </if>
+      <if test="COST_FLG != null">
+        COST_FLG = #{COST_FLG,jdbcType=CHAR},
+      </if>
+      <if test="GL_MST != null">
+        GL_MST = #{GL_MST,jdbcType=DECIMAL},
+      </if>
+      <if test="DEF_PTR != null">
+        DEF_PTR = #{DEF_PTR,jdbcType=CHAR},
+      </if>
+      <if test="PAY_PTR != null">
+        PAY_PTR = #{PAY_PTR,jdbcType=CHAR},
+      </if>
+      <if test="CFM_PTR != null">
+        CFM_PTR = #{CFM_PTR,jdbcType=CHAR},
+      </if>
+      <if test="SWF_ID != null">
+        SWF_ID = #{SWF_ID,jdbcType=CHAR},
+      </if>
+      <if test="BIC_NO != null">
+        BIC_NO = #{BIC_NO,jdbcType=CHAR},
+      </if>
+      <if test="IBAN_NO != null">
+        IBAN_NO = #{IBAN_NO,jdbcType=CHAR},
+      </if>
+      <if test="CI_LEN != null">
+        CI_LEN = #{CI_LEN,jdbcType=DECIMAL},
+      </if>
+      <if test="COUN_CD != null">
+        COUN_CD = #{COUN_CD,jdbcType=CHAR},
+      </if>
+      <if test="CITY_CD != null">
+        CITY_CD = #{CITY_CD,jdbcType=CHAR},
+      </if>
+      <if test="UNSCH_HOL != null">
+        UNSCH_HOL = #{UNSCH_HOL,jdbcType=CHAR},
+      </if>
+      <if test="UNSCH_HOL_TM != null">
+        UNSCH_HOL_TM = #{UNSCH_HOL_TM,jdbcType=DECIMAL},
+      </if>
+      <if test="OPN_CHECK_FLG != null">
+        OPN_CHECK_FLG = #{OPN_CHECK_FLG,jdbcType=CHAR},
+      </if>
+      <if test="VOU_CHECK_FLG != null">
+        VOU_CHECK_FLG = #{VOU_CHECK_FLG,jdbcType=CHAR},
+      </if>
+      <if test="INT_TAX_FLG != null">
+        INT_TAX_FLG = #{INT_TAX_FLG,jdbcType=CHAR},
+      </if>
+      <if test="ERP_BRAN != null">
+        ERP_BRAN = #{ERP_BRAN,jdbcType=DECIMAL},
+      </if>
+      <if test="ORG_FLG != null">
+        ORG_FLG = #{ORG_FLG,jdbcType=CHAR},
+      </if>
+      <if test="BRANCH_BR != null">
+        BRANCH_BR = #{BRANCH_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="FTZ_CD != null">
+        FTZ_CD = #{FTZ_CD,jdbcType=CHAR},
+      </if>
+      <if test="BOP_CD != null">
+        BOP_CD = #{BOP_CD,jdbcType=CHAR},
+      </if>
+      <if test="CIC_CD != null">
+        CIC_CD = #{CIC_CD,jdbcType=CHAR},
+      </if>
+      <if test="FII_CD != null">
+        FII_CD = #{FII_CD,jdbcType=CHAR},
+      </if>
+      <if test="UPD_DATE != null">
+        UPD_DATE = #{UPD_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_BR != null">
+        UPD_BR = #{UPD_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_TLR != null">
+        UPD_TLR = #{UPD_TLR,jdbcType=CHAR},
+      </if>
+      <if test="TS != null">
+        TS = #{TS,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where TYPE = #{TYPE,jdbcType=CHAR}
+      and CODE = #{CODE,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gaoyang.loadparm.entity.Bptporgm">
+    update bptporgm
+    set EFF_DATE = #{EFF_DATE,jdbcType=DECIMAL},
+      EXP_DATE = #{EXP_DATE,jdbcType=DECIMAL},
+      DESC = #{DESC,jdbcType=CHAR},
+      CDESC = #{CDESC,jdbcType=CHAR},
+      SUPR_BR = #{SUPR_BR,jdbcType=DECIMAL},
+      ATTR = #{ATTR,jdbcType=CHAR},
+      LVL = #{LVL,jdbcType=CHAR},
+      TYP = #{TYP,jdbcType=CHAR},
+      EFF_DT = #{EFF_DT,jdbcType=DECIMAL},
+      EXP_DT = #{EXP_DT,jdbcType=DECIMAL},
+      CHN_NM = #{CHN_NM,jdbcType=CHAR},
+      CHN_ADDR = #{CHN_ADDR,jdbcType=CHAR},
+      ENG_NM = #{ENG_NM,jdbcType=CHAR},
+      ENG_ADDR = #{ENG_ADDR,jdbcType=CHAR},
+      ABBR = #{ABBR,jdbcType=CHAR},
+      LINK_MAN = #{LINK_MAN,jdbcType=CHAR},
+      LINK_TEL = #{LINK_TEL,jdbcType=CHAR},
+      POST = #{POST,jdbcType=CHAR},
+      TLR_MAX = #{TLR_MAX,jdbcType=CHAR},
+      ATH_MAX = #{ATH_MAX,jdbcType=CHAR},
+      FX_BUSI = #{FX_BUSI,jdbcType=CHAR},
+      CNAP_NO = #{CNAP_NO,jdbcType=DECIMAL},
+      ACCT_FLG = #{ACCT_FLG,jdbcType=CHAR},
+      OPN_DT = #{OPN_DT,jdbcType=DECIMAL},
+      RUN_HDAY = #{RUN_HDAY,jdbcType=CHAR},
+      RUN_MODE = #{RUN_MODE,jdbcType=CHAR},
+      CALD_CD = #{CALD_CD,jdbcType=CHAR},
+      OPN_TM = #{OPN_TM,jdbcType=DECIMAL},
+      CLS_TM = #{CLS_TM,jdbcType=DECIMAL},
+      HOPN_TM = #{HOPN_TM,jdbcType=DECIMAL},
+      HCLS_TM = #{HCLS_TM,jdbcType=DECIMAL},
+      UPT_DT = #{UPT_DT,jdbcType=DECIMAL},
+      UPT_TLR = #{UPT_TLR,jdbcType=CHAR},
+      FAX = #{FAX,jdbcType=CHAR},
+      TELEX = #{TELEX,jdbcType=CHAR},
+      PRO_FLG = #{PRO_FLG,jdbcType=CHAR},
+      COST_FLG = #{COST_FLG,jdbcType=CHAR},
+      GL_MST = #{GL_MST,jdbcType=DECIMAL},
+      DEF_PTR = #{DEF_PTR,jdbcType=CHAR},
+      PAY_PTR = #{PAY_PTR,jdbcType=CHAR},
+      CFM_PTR = #{CFM_PTR,jdbcType=CHAR},
+      SWF_ID = #{SWF_ID,jdbcType=CHAR},
+      BIC_NO = #{BIC_NO,jdbcType=CHAR},
+      IBAN_NO = #{IBAN_NO,jdbcType=CHAR},
+      CI_LEN = #{CI_LEN,jdbcType=DECIMAL},
+      COUN_CD = #{COUN_CD,jdbcType=CHAR},
+      CITY_CD = #{CITY_CD,jdbcType=CHAR},
+      UNSCH_HOL = #{UNSCH_HOL,jdbcType=CHAR},
+      UNSCH_HOL_TM = #{UNSCH_HOL_TM,jdbcType=DECIMAL},
+      OPN_CHECK_FLG = #{OPN_CHECK_FLG,jdbcType=CHAR},
+      VOU_CHECK_FLG = #{VOU_CHECK_FLG,jdbcType=CHAR},
+      INT_TAX_FLG = #{INT_TAX_FLG,jdbcType=CHAR},
+      ERP_BRAN = #{ERP_BRAN,jdbcType=DECIMAL},
+      ORG_FLG = #{ORG_FLG,jdbcType=CHAR},
+      BRANCH_BR = #{BRANCH_BR,jdbcType=DECIMAL},
+      FTZ_CD = #{FTZ_CD,jdbcType=CHAR},
+      BOP_CD = #{BOP_CD,jdbcType=CHAR},
+      CIC_CD = #{CIC_CD,jdbcType=CHAR},
+      FII_CD = #{FII_CD,jdbcType=CHAR},
+      UPD_DATE = #{UPD_DATE,jdbcType=DECIMAL},
+      UPD_BR = #{UPD_BR,jdbcType=DECIMAL},
+      UPD_TLR = #{UPD_TLR,jdbcType=CHAR},
+      TS = #{TS,jdbcType=TIMESTAMP}
+    where TYPE = #{TYPE,jdbcType=CHAR}
+      and CODE = #{CODE,jdbcType=CHAR}
+  </update>
+</mapper>

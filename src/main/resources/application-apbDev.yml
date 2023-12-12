@@ -1,0 +1,25 @@
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  datasource:
+    username: core
+    password: 123456
+    url: jdbc:mysql://192.168.201.80:3306/core001?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.gaoyang.loadparm.entity
+http:
+  multipart:
+    max-file-size: 100MB
+    max-request-size: 100MB
+  encoding:
+    charset: UTF-8
+    enabled: true
+    force: true
+server:
+  tomcat:
+    uri-encoding: UTF-8

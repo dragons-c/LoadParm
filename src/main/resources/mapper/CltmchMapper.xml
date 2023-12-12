@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaoyang.loadparm.mapper.CltmchMapper">
+  <resultMap id="BaseResultMap" type="com.gaoyang.loadparm.entity.Cltmch">
+    <id column="R_TYPE" jdbcType="CHAR" property="r_TYPE" />
+    <id column="SEQ_NO" jdbcType="DECIMAL" property="SEQ_NO" />
+    <result column="TYPE" jdbcType="CHAR" property="TYPE" />
+    <result column="CI_NO" jdbcType="CHAR" property="CI_NO" />
+    <result column="PROD_CODE" jdbcType="CHAR" property="PROD_CODE" />
+    <result column="LMT_CODE" jdbcType="CHAR" property="LMT_CODE" />
+    <result column="REC_STATUS" jdbcType="CHAR" property="REC_STATUS" />
+    <result column="UNCONFMD_UNIT" jdbcType="DECIMAL" property="UNCONFMD_UNIT" />
+    <result column="CREATE_DATE" jdbcType="DECIMAL" property="CREATE_DATE" />
+    <result column="CREATE_TL" jdbcType="CHAR" property="CREATE_TL" />
+    <result column="CREATE_UNIT" jdbcType="DECIMAL" property="CREATE_UNIT" />
+    <result column="UPDATE_DATE" jdbcType="DECIMAL" property="UPDATE_DATE" />
+    <result column="UPDATE_TL" jdbcType="CHAR" property="UPDATE_TL" />
+    <result column="UPDATE_UNIT" jdbcType="DECIMAL" property="UPDATE_UNIT" />
+    <result column="CONF_UNIT" jdbcType="DECIMAL" property="CONF_UNIT" />
+    <result column="CONF_SUP" jdbcType="CHAR" property="CONF_SUP" />
+    <result column="CONF_DATE" jdbcType="DECIMAL" property="CONF_DATE" />
+    <result column="OVER_SUP1" jdbcType="CHAR" property="OVER_SUP1" />
+    <result column="OVER_SUP2" jdbcType="CHAR" property="OVER_SUP2" />
+    <result column="VER_NO" jdbcType="DECIMAL" property="VER_NO" />
+    <result column="UPDTBL_DATE" jdbcType="DECIMAL" property="UPDTBL_DATE" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    R_TYPE, SEQ_NO, TYPE, CI_NO, PROD_CODE, LMT_CODE, REC_STATUS, UNCONFMD_UNIT, CREATE_DATE, 
+    CREATE_TL, CREATE_UNIT, UPDATE_DATE, UPDATE_TL, UPDATE_UNIT, CONF_UNIT, CONF_SUP, 
+    CONF_DATE, OVER_SUP1, OVER_SUP2, VER_NO, UPDTBL_DATE, TS
+  </sql>
+  <select id="selectByExample" parameterType="com.gaoyang.loadparm.entity.CltmchExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from cltmch
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.gaoyang.loadparm.entity.CltmchKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cltmch
+    where R_TYPE = #{r_TYPE,jdbcType=CHAR}
+      and SEQ_NO = #{SEQ_NO,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.gaoyang.loadparm.entity.CltmchKey">
+    delete from cltmch
+    where R_TYPE = #{r_TYPE,jdbcType=CHAR}
+      and SEQ_NO = #{SEQ_NO,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.gaoyang.loadparm.entity.Cltmch">
+    insert into cltmch (R_TYPE, SEQ_NO, TYPE, 
+      CI_NO, PROD_CODE, LMT_CODE, 
+      REC_STATUS, UNCONFMD_UNIT, CREATE_DATE, 
+      CREATE_TL, CREATE_UNIT, UPDATE_DATE, 
+      UPDATE_TL, UPDATE_UNIT, CONF_UNIT, 
+      CONF_SUP, CONF_DATE, OVER_SUP1, 
+      OVER_SUP2, VER_NO, UPDTBL_DATE, 
+      TS)
+    values (#{r_TYPE,jdbcType=CHAR}, #{SEQ_NO,jdbcType=DECIMAL}, #{TYPE,jdbcType=CHAR}, 
+      #{CI_NO,jdbcType=CHAR}, #{PROD_CODE,jdbcType=CHAR}, #{LMT_CODE,jdbcType=CHAR}, 
+      #{REC_STATUS,jdbcType=CHAR}, #{UNCONFMD_UNIT,jdbcType=DECIMAL}, #{CREATE_DATE,jdbcType=DECIMAL}, 
+      #{CREATE_TL,jdbcType=CHAR}, #{CREATE_UNIT,jdbcType=DECIMAL}, #{UPDATE_DATE,jdbcType=DECIMAL}, 
+      #{UPDATE_TL,jdbcType=CHAR}, #{UPDATE_UNIT,jdbcType=DECIMAL}, #{CONF_UNIT,jdbcType=DECIMAL}, 
+      #{CONF_SUP,jdbcType=CHAR}, #{CONF_DATE,jdbcType=DECIMAL}, #{OVER_SUP1,jdbcType=CHAR}, 
+      #{OVER_SUP2,jdbcType=CHAR}, #{VER_NO,jdbcType=DECIMAL}, #{UPDTBL_DATE,jdbcType=DECIMAL}, 
+      #{TS,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gaoyang.loadparm.entity.Cltmch">
+    insert into cltmch
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="r_TYPE != null">
+        R_TYPE,
+      </if>
+      <if test="SEQ_NO != null">
+        SEQ_NO,
+      </if>
+      <if test="TYPE != null">
+        TYPE,
+      </if>
+      <if test="CI_NO != null">
+        CI_NO,
+      </if>
+      <if test="PROD_CODE != null">
+        PROD_CODE,
+      </if>
+      <if test="LMT_CODE != null">
+        LMT_CODE,
+      </if>
+      <if test="REC_STATUS != null">
+        REC_STATUS,
+      </if>
+      <if test="UNCONFMD_UNIT != null">
+        UNCONFMD_UNIT,
+      </if>
+      <if test="CREATE_DATE != null">
+        CREATE_DATE,
+      </if>
+      <if test="CREATE_TL != null">
+        CREATE_TL,
+      </if>
+      <if test="CREATE_UNIT != null">
+        CREATE_UNIT,
+      </if>
+      <if test="UPDATE_DATE != null">
+        UPDATE_DATE,
+      </if>
+      <if test="UPDATE_TL != null">
+        UPDATE_TL,
+      </if>
+      <if test="UPDATE_UNIT != null">
+        UPDATE_UNIT,
+      </if>
+      <if test="CONF_UNIT != null">
+        CONF_UNIT,
+      </if>
+      <if test="CONF_SUP != null">
+        CONF_SUP,
+      </if>
+      <if test="CONF_DATE != null">
+        CONF_DATE,
+      </if>
+      <if test="OVER_SUP1 != null">
+        OVER_SUP1,
+      </if>
+      <if test="OVER_SUP2 != null">
+        OVER_SUP2,
+      </if>
+      <if test="VER_NO != null">
+        VER_NO,
+      </if>
+      <if test="UPDTBL_DATE != null">
+        UPDTBL_DATE,
+      </if>
+      <if test="TS != null">
+        TS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="r_TYPE != null">
+        #{r_TYPE,jdbcType=CHAR},
+      </if>
+      <if test="SEQ_NO != null">
+        #{SEQ_NO,jdbcType=DECIMAL},
+      </if>
+      <if test="TYPE != null">
+        #{TYPE,jdbcType=CHAR},
+      </if>
+      <if test="CI_NO != null">
+        #{CI_NO,jdbcType=CHAR},
+      </if>
+      <if test="PROD_CODE != null">
+        #{PROD_CODE,jdbcType=CHAR},
+      </if>
+      <if test="LMT_CODE != null">
+        #{LMT_CODE,jdbcType=CHAR},
+      </if>
+      <if test="REC_STATUS != null">
+        #{REC_STATUS,jdbcType=CHAR},
+      </if>
+      <if test="UNCONFMD_UNIT != null">
+        #{UNCONFMD_UNIT,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATE_DATE != null">
+        #{CREATE_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATE_TL != null">
+        #{CREATE_TL,jdbcType=CHAR},
+      </if>
+      <if test="CREATE_UNIT != null">
+        #{CREATE_UNIT,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATE_DATE != null">
+        #{UPDATE_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATE_TL != null">
+        #{UPDATE_TL,jdbcType=CHAR},
+      </if>
+      <if test="UPDATE_UNIT != null">
+        #{UPDATE_UNIT,jdbcType=DECIMAL},
+      </if>
+      <if test="CONF_UNIT != null">
+        #{CONF_UNIT,jdbcType=DECIMAL},
+      </if>
+      <if test="CONF_SUP != null">
+        #{CONF_SUP,jdbcType=CHAR},
+      </if>
+      <if test="CONF_DATE != null">
+        #{CONF_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="OVER_SUP1 != null">
+        #{OVER_SUP1,jdbcType=CHAR},
+      </if>
+      <if test="OVER_SUP2 != null">
+        #{OVER_SUP2,jdbcType=CHAR},
+      </if>
+      <if test="VER_NO != null">
+        #{VER_NO,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDTBL_DATE != null">
+        #{UPDTBL_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="TS != null">
+        #{TS,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gaoyang.loadparm.entity.Cltmch">
+    update cltmch
+    <set>
+      <if test="TYPE != null">
+        TYPE = #{TYPE,jdbcType=CHAR},
+      </if>
+      <if test="CI_NO != null">
+        CI_NO = #{CI_NO,jdbcType=CHAR},
+      </if>
+      <if test="PROD_CODE != null">
+        PROD_CODE = #{PROD_CODE,jdbcType=CHAR},
+      </if>
+      <if test="LMT_CODE != null">
+        LMT_CODE = #{LMT_CODE,jdbcType=CHAR},
+      </if>
+      <if test="REC_STATUS != null">
+        REC_STATUS = #{REC_STATUS,jdbcType=CHAR},
+      </if>
+      <if test="UNCONFMD_UNIT != null">
+        UNCONFMD_UNIT = #{UNCONFMD_UNIT,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATE_DATE != null">
+        CREATE_DATE = #{CREATE_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATE_TL != null">
+        CREATE_TL = #{CREATE_TL,jdbcType=CHAR},
+      </if>
+      <if test="CREATE_UNIT != null">
+        CREATE_UNIT = #{CREATE_UNIT,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATE_DATE != null">
+        UPDATE_DATE = #{UPDATE_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATE_TL != null">
+        UPDATE_TL = #{UPDATE_TL,jdbcType=CHAR},
+      </if>
+      <if test="UPDATE_UNIT != null">
+        UPDATE_UNIT = #{UPDATE_UNIT,jdbcType=DECIMAL},
+      </if>
+      <if test="CONF_UNIT != null">
+        CONF_UNIT = #{CONF_UNIT,jdbcType=DECIMAL},
+      </if>
+      <if test="CONF_SUP != null">
+        CONF_SUP = #{CONF_SUP,jdbcType=CHAR},
+      </if>
+      <if test="CONF_DATE != null">
+        CONF_DATE = #{CONF_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="OVER_SUP1 != null">
+        OVER_SUP1 = #{OVER_SUP1,jdbcType=CHAR},
+      </if>
+      <if test="OVER_SUP2 != null">
+        OVER_SUP2 = #{OVER_SUP2,jdbcType=CHAR},
+      </if>
+      <if test="VER_NO != null">
+        VER_NO = #{VER_NO,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDTBL_DATE != null">
+        UPDTBL_DATE = #{UPDTBL_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="TS != null">
+        TS = #{TS,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where R_TYPE = #{r_TYPE,jdbcType=CHAR}
+      and SEQ_NO = #{SEQ_NO,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gaoyang.loadparm.entity.Cltmch">
+    update cltmch
+    set TYPE = #{TYPE,jdbcType=CHAR},
+      CI_NO = #{CI_NO,jdbcType=CHAR},
+      PROD_CODE = #{PROD_CODE,jdbcType=CHAR},
+      LMT_CODE = #{LMT_CODE,jdbcType=CHAR},
+      REC_STATUS = #{REC_STATUS,jdbcType=CHAR},
+      UNCONFMD_UNIT = #{UNCONFMD_UNIT,jdbcType=DECIMAL},
+      CREATE_DATE = #{CREATE_DATE,jdbcType=DECIMAL},
+      CREATE_TL = #{CREATE_TL,jdbcType=CHAR},
+      CREATE_UNIT = #{CREATE_UNIT,jdbcType=DECIMAL},
+      UPDATE_DATE = #{UPDATE_DATE,jdbcType=DECIMAL},
+      UPDATE_TL = #{UPDATE_TL,jdbcType=CHAR},
+      UPDATE_UNIT = #{UPDATE_UNIT,jdbcType=DECIMAL},
+      CONF_UNIT = #{CONF_UNIT,jdbcType=DECIMAL},
+      CONF_SUP = #{CONF_SUP,jdbcType=CHAR},
+      CONF_DATE = #{CONF_DATE,jdbcType=DECIMAL},
+      OVER_SUP1 = #{OVER_SUP1,jdbcType=CHAR},
+      OVER_SUP2 = #{OVER_SUP2,jdbcType=CHAR},
+      VER_NO = #{VER_NO,jdbcType=DECIMAL},
+      UPDTBL_DATE = #{UPDTBL_DATE,jdbcType=DECIMAL},
+      TS = #{TS,jdbcType=TIMESTAMP}
+    where R_TYPE = #{r_TYPE,jdbcType=CHAR}
+      and SEQ_NO = #{SEQ_NO,jdbcType=DECIMAL}
+  </update>
+</mapper>

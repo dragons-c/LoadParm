@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaoyang.loadparm.mapper.BptpdmeMapper">
+  <resultMap id="BaseResultMap" type="com.gaoyang.loadparm.entity.Bptpdme">
+    <id column="PRDT_CODE" jdbcType="CHAR" property="PRDT_CODE" />
+    <result column="PRDT_NAME" jdbcType="CHAR" property="PRDT_NAME" />
+    <result column="BUSI_TYPE" jdbcType="CHAR" property="BUSI_TYPE" />
+    <result column="CTRACT_GROUP" jdbcType="CHAR" property="CTRACT_GROUP" />
+    <result column="PRDT_MODEL" jdbcType="CHAR" property="PRDT_MODEL" />
+    <result column="PRDT_MODEL1" jdbcType="CHAR" property="PRDT_MODEL1" />
+    <result column="PRDT_MODEL2" jdbcType="CHAR" property="PRDT_MODEL2" />
+    <result column="PRDT_MODEL3" jdbcType="CHAR" property="PRDT_MODEL3" />
+    <result column="PRDT_MODEL4" jdbcType="CHAR" property="PRDT_MODEL4" />
+    <result column="PRDT_MODEL5" jdbcType="CHAR" property="PRDT_MODEL5" />
+    <result column="STS" jdbcType="CHAR" property="STS" />
+    <result column="PRDT_IND" jdbcType="CHAR" property="PRDT_IND" />
+    <result column="DESC" jdbcType="CHAR" property="DESC" />
+    <result column="EFF_DATE" jdbcType="DECIMAL" property="EFF_DATE" />
+    <result column="EXP_DATE" jdbcType="DECIMAL" property="EXP_DATE" />
+    <result column="STOP_SOLD_DATE" jdbcType="DECIMAL" property="STOP_SOLD_DATE" />
+    <result column="PARM_CODE" jdbcType="CHAR" property="PARM_CODE" />
+    <result column="AC_RULE" jdbcType="CHAR" property="AC_RULE" />
+    <result column="ACCR_TYPE" jdbcType="CHAR" property="ACCR_TYPE" />
+    <result column="RISK_LVL" jdbcType="CHAR" property="RISK_LVL" />
+    <result column="PRDT_MANEGER" jdbcType="CHAR" property="PRDT_MANEGER" />
+    <result column="ASS_BR" jdbcType="DECIMAL" property="ASS_BR" />
+    <result column="OPEN_DATE" jdbcType="DECIMAL" property="OPEN_DATE" />
+    <result column="LAST_DATE" jdbcType="DECIMAL" property="LAST_DATE" />
+    <result column="LAST_TLT" jdbcType="CHAR" property="LAST_TLT" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    PRDT_CODE, PRDT_NAME, BUSI_TYPE, CTRACT_GROUP, PRDT_MODEL, PRDT_MODEL1, PRDT_MODEL2, 
+    PRDT_MODEL3, PRDT_MODEL4, PRDT_MODEL5, STS, PRDT_IND, `DESC`, EFF_DATE, EXP_DATE, STOP_SOLD_DATE,
+    PARM_CODE, AC_RULE, ACCR_TYPE, RISK_LVL, PRDT_MANEGER, ASS_BR, OPEN_DATE, LAST_DATE, 
+    LAST_TLT, TS
+  </sql>
+  <select id="selectByExample" parameterType="com.gaoyang.loadparm.entity.BptpdmeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from bptpdme
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bptpdme
+    where PRDT_CODE = #{PRDT_CODE,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from bptpdme
+    where PRDT_CODE = #{PRDT_CODE,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.gaoyang.loadparm.entity.Bptpdme">
+    insert into bptpdme (PRDT_CODE, PRDT_NAME, BUSI_TYPE, 
+      CTRACT_GROUP, PRDT_MODEL, PRDT_MODEL1, 
+      PRDT_MODEL2, PRDT_MODEL3, PRDT_MODEL4, 
+      PRDT_MODEL5, STS, PRDT_IND, 
+      `DESC`, EFF_DATE, EXP_DATE,
+      STOP_SOLD_DATE, PARM_CODE, AC_RULE, 
+      ACCR_TYPE, RISK_LVL, PRDT_MANEGER, 
+      ASS_BR, OPEN_DATE, LAST_DATE, 
+      LAST_TLT, TS)
+    values (#{PRDT_CODE,jdbcType=CHAR}, #{PRDT_NAME,jdbcType=CHAR}, #{BUSI_TYPE,jdbcType=CHAR}, 
+      #{CTRACT_GROUP,jdbcType=CHAR}, #{PRDT_MODEL,jdbcType=CHAR}, #{PRDT_MODEL1,jdbcType=CHAR}, 
+      #{PRDT_MODEL2,jdbcType=CHAR}, #{PRDT_MODEL3,jdbcType=CHAR}, #{PRDT_MODEL4,jdbcType=CHAR}, 
+      #{PRDT_MODEL5,jdbcType=CHAR}, #{STS,jdbcType=CHAR}, #{PRDT_IND,jdbcType=CHAR}, 
+      #{DESC,jdbcType=CHAR}, #{EFF_DATE,jdbcType=DECIMAL}, #{EXP_DATE,jdbcType=DECIMAL}, 
+      #{STOP_SOLD_DATE,jdbcType=DECIMAL}, #{PARM_CODE,jdbcType=CHAR}, #{AC_RULE,jdbcType=CHAR}, 
+      #{ACCR_TYPE,jdbcType=CHAR}, #{RISK_LVL,jdbcType=CHAR}, #{PRDT_MANEGER,jdbcType=CHAR}, 
+      #{ASS_BR,jdbcType=DECIMAL}, #{OPEN_DATE,jdbcType=DECIMAL}, #{LAST_DATE,jdbcType=DECIMAL}, 
+      #{LAST_TLT,jdbcType=CHAR}, #{TS,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gaoyang.loadparm.entity.Bptpdme">
+    insert into bptpdme
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="PRDT_CODE != null">
+        PRDT_CODE,
+      </if>
+      <if test="PRDT_NAME != null">
+        PRDT_NAME,
+      </if>
+      <if test="BUSI_TYPE != null">
+        BUSI_TYPE,
+      </if>
+      <if test="CTRACT_GROUP != null">
+        CTRACT_GROUP,
+      </if>
+      <if test="PRDT_MODEL != null">
+        PRDT_MODEL,
+      </if>
+      <if test="PRDT_MODEL1 != null">
+        PRDT_MODEL1,
+      </if>
+      <if test="PRDT_MODEL2 != null">
+        PRDT_MODEL2,
+      </if>
+      <if test="PRDT_MODEL3 != null">
+        PRDT_MODEL3,
+      </if>
+      <if test="PRDT_MODEL4 != null">
+        PRDT_MODEL4,
+      </if>
+      <if test="PRDT_MODEL5 != null">
+        PRDT_MODEL5,
+      </if>
+      <if test="STS != null">
+        STS,
+      </if>
+      <if test="PRDT_IND != null">
+        PRDT_IND,
+      </if>
+      <if test="DESC != null">
+        `DESC`,
+      </if>
+      <if test="EFF_DATE != null">
+        EFF_DATE,
+      </if>
+      <if test="EXP_DATE != null">
+        EXP_DATE,
+      </if>
+      <if test="STOP_SOLD_DATE != null">
+        STOP_SOLD_DATE,
+      </if>
+      <if test="PARM_CODE != null">
+        PARM_CODE,
+      </if>
+      <if test="AC_RULE != null">
+        AC_RULE,
+      </if>
+      <if test="ACCR_TYPE != null">
+        ACCR_TYPE,
+      </if>
+      <if test="RISK_LVL != null">
+        RISK_LVL,
+      </if>
+      <if test="PRDT_MANEGER != null">
+        PRDT_MANEGER,
+      </if>
+      <if test="ASS_BR != null">
+        ASS_BR,
+      </if>
+      <if test="OPEN_DATE != null">
+        OPEN_DATE,
+      </if>
+      <if test="LAST_DATE != null">
+        LAST_DATE,
+      </if>
+      <if test="LAST_TLT != null">
+        LAST_TLT,
+      </if>
+      <if test="TS != null">
+        TS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="PRDT_CODE != null">
+        #{PRDT_CODE,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_NAME != null">
+        #{PRDT_NAME,jdbcType=CHAR},
+      </if>
+      <if test="BUSI_TYPE != null">
+        #{BUSI_TYPE,jdbcType=CHAR},
+      </if>
+      <if test="CTRACT_GROUP != null">
+        #{CTRACT_GROUP,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_MODEL != null">
+        #{PRDT_MODEL,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_MODEL1 != null">
+        #{PRDT_MODEL1,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_MODEL2 != null">
+        #{PRDT_MODEL2,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_MODEL3 != null">
+        #{PRDT_MODEL3,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_MODEL4 != null">
+        #{PRDT_MODEL4,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_MODEL5 != null">
+        #{PRDT_MODEL5,jdbcType=CHAR},
+      </if>
+      <if test="STS != null">
+        #{STS,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_IND != null">
+        #{PRDT_IND,jdbcType=CHAR},
+      </if>
+      <if test="DESC != null">
+        #{DESC,jdbcType=CHAR},
+      </if>
+      <if test="EFF_DATE != null">
+        #{EFF_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="EXP_DATE != null">
+        #{EXP_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="STOP_SOLD_DATE != null">
+        #{STOP_SOLD_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="PARM_CODE != null">
+        #{PARM_CODE,jdbcType=CHAR},
+      </if>
+      <if test="AC_RULE != null">
+        #{AC_RULE,jdbcType=CHAR},
+      </if>
+      <if test="ACCR_TYPE != null">
+        #{ACCR_TYPE,jdbcType=CHAR},
+      </if>
+      <if test="RISK_LVL != null">
+        #{RISK_LVL,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_MANEGER != null">
+        #{PRDT_MANEGER,jdbcType=CHAR},
+      </if>
+      <if test="ASS_BR != null">
+        #{ASS_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="OPEN_DATE != null">
+        #{OPEN_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="LAST_DATE != null">
+        #{LAST_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="LAST_TLT != null">
+        #{LAST_TLT,jdbcType=CHAR},
+      </if>
+      <if test="TS != null">
+        #{TS,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gaoyang.loadparm.entity.Bptpdme">
+    update bptpdme
+    <set>
+      <if test="PRDT_NAME != null">
+        PRDT_NAME = #{PRDT_NAME,jdbcType=CHAR},
+      </if>
+      <if test="BUSI_TYPE != null">
+        BUSI_TYPE = #{BUSI_TYPE,jdbcType=CHAR},
+      </if>
+      <if test="CTRACT_GROUP != null">
+        CTRACT_GROUP = #{CTRACT_GROUP,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_MODEL != null">
+        PRDT_MODEL = #{PRDT_MODEL,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_MODEL1 != null">
+        PRDT_MODEL1 = #{PRDT_MODEL1,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_MODEL2 != null">
+        PRDT_MODEL2 = #{PRDT_MODEL2,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_MODEL3 != null">
+        PRDT_MODEL3 = #{PRDT_MODEL3,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_MODEL4 != null">
+        PRDT_MODEL4 = #{PRDT_MODEL4,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_MODEL5 != null">
+        PRDT_MODEL5 = #{PRDT_MODEL5,jdbcType=CHAR},
+      </if>
+      <if test="STS != null">
+        STS = #{STS,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_IND != null">
+        PRDT_IND = #{PRDT_IND,jdbcType=CHAR},
+      </if>
+      <if test="DESC != null">
+        `DESC` = #{DESC,jdbcType=CHAR},
+      </if>
+      <if test="EFF_DATE != null">
+        EFF_DATE = #{EFF_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="EXP_DATE != null">
+        EXP_DATE = #{EXP_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="STOP_SOLD_DATE != null">
+        STOP_SOLD_DATE = #{STOP_SOLD_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="PARM_CODE != null">
+        PARM_CODE = #{PARM_CODE,jdbcType=CHAR},
+      </if>
+      <if test="AC_RULE != null">
+        AC_RULE = #{AC_RULE,jdbcType=CHAR},
+      </if>
+      <if test="ACCR_TYPE != null">
+        ACCR_TYPE = #{ACCR_TYPE,jdbcType=CHAR},
+      </if>
+      <if test="RISK_LVL != null">
+        RISK_LVL = #{RISK_LVL,jdbcType=CHAR},
+      </if>
+      <if test="PRDT_MANEGER != null">
+        PRDT_MANEGER = #{PRDT_MANEGER,jdbcType=CHAR},
+      </if>
+      <if test="ASS_BR != null">
+        ASS_BR = #{ASS_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="OPEN_DATE != null">
+        OPEN_DATE = #{OPEN_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="LAST_DATE != null">
+        LAST_DATE = #{LAST_DATE,jdbcType=DECIMAL},
+      </if>
+      <if test="LAST_TLT != null">
+        LAST_TLT = #{LAST_TLT,jdbcType=CHAR},
+      </if>
+      <if test="TS != null">
+        TS = #{TS,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PRDT_CODE = #{PRDT_CODE,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gaoyang.loadparm.entity.Bptpdme">
+    update bptpdme
+    set PRDT_NAME = #{PRDT_NAME,jdbcType=CHAR},
+      BUSI_TYPE = #{BUSI_TYPE,jdbcType=CHAR},
+      CTRACT_GROUP = #{CTRACT_GROUP,jdbcType=CHAR},
+      PRDT_MODEL = #{PRDT_MODEL,jdbcType=CHAR},
+      PRDT_MODEL1 = #{PRDT_MODEL1,jdbcType=CHAR},
+      PRDT_MODEL2 = #{PRDT_MODEL2,jdbcType=CHAR},
+      PRDT_MODEL3 = #{PRDT_MODEL3,jdbcType=CHAR},
+      PRDT_MODEL4 = #{PRDT_MODEL4,jdbcType=CHAR},
+      PRDT_MODEL5 = #{PRDT_MODEL5,jdbcType=CHAR},
+      STS = #{STS,jdbcType=CHAR},
+      PRDT_IND = #{PRDT_IND,jdbcType=CHAR},
+      `DESC` = #{DESC,jdbcType=CHAR},
+      EFF_DATE = #{EFF_DATE,jdbcType=DECIMAL},
+      EXP_DATE = #{EXP_DATE,jdbcType=DECIMAL},
+      STOP_SOLD_DATE = #{STOP_SOLD_DATE,jdbcType=DECIMAL},
+      PARM_CODE = #{PARM_CODE,jdbcType=CHAR},
+      AC_RULE = #{AC_RULE,jdbcType=CHAR},
+      ACCR_TYPE = #{ACCR_TYPE,jdbcType=CHAR},
+      RISK_LVL = #{RISK_LVL,jdbcType=CHAR},
+      PRDT_MANEGER = #{PRDT_MANEGER,jdbcType=CHAR},
+      ASS_BR = #{ASS_BR,jdbcType=DECIMAL},
+      OPEN_DATE = #{OPEN_DATE,jdbcType=DECIMAL},
+      LAST_DATE = #{LAST_DATE,jdbcType=DECIMAL},
+      LAST_TLT = #{LAST_TLT,jdbcType=CHAR},
+      TS = #{TS,jdbcType=TIMESTAMP}
+    where PRDT_CODE = #{PRDT_CODE,jdbcType=CHAR}
+  </update>
+</mapper>

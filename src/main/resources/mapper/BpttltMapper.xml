@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaoyang.loadparm.mapper.BpttltMapper">
+  <resultMap id="BaseResultMap" type="com.gaoyang.loadparm.entity.Bpttlt">
+    <id column="TLR" jdbcType="CHAR" property="TLR" />
+    <result column="TLR_BR" jdbcType="DECIMAL" property="TLR_BR" />
+    <result column="TLR_TKS" jdbcType="DECIMAL" property="TLR_TKS" />
+    <result column="STAF_NO" jdbcType="CHAR" property="STAF_NO" />
+    <result column="TLR_CN_NM" jdbcType="CHAR" property="TLR_CN_NM" />
+    <result column="TLR_EN_NM" jdbcType="CHAR" property="TLR_EN_NM" />
+    <result column="EFF_DT" jdbcType="DECIMAL" property="EFF_DT" />
+    <result column="EXP_DT" jdbcType="DECIMAL" property="EXP_DT" />
+    <result column="UPD_DT" jdbcType="DECIMAL" property="UPD_DT" />
+    <result column="UPD_TLR" jdbcType="CHAR" property="UPD_TLR" />
+    <result column="TLR_TYP" jdbcType="CHAR" property="TLR_TYP" />
+    <result column="TLR_LVL" jdbcType="CHAR" property="TLR_LVL" />
+    <result column="TX_LVL" jdbcType="CHAR" property="TX_LVL" />
+    <result column="ATH_LVL" jdbcType="CHAR" property="ATH_LVL" />
+    <result column="ATH_RGN" jdbcType="CHAR" property="ATH_RGN" />
+    <result column="TMP_TX_LVL" jdbcType="CHAR" property="TMP_TX_LVL" />
+    <result column="TMP_ATH_LVL" jdbcType="CHAR" property="TMP_ATH_LVL" />
+    <result column="TX_MODE" jdbcType="CHAR" property="TX_MODE" />
+    <result column="SIGN_STS" jdbcType="CHAR" property="SIGN_STS" />
+    <result column="TLR_STS" jdbcType="CHAR" property="TLR_STS" />
+    <result column="SIGN_DT" jdbcType="DECIMAL" property="SIGN_DT" />
+    <result column="CRO_BR_SIGN" jdbcType="CHAR" property="CRO_BR_SIGN" />
+    <result column="SIGN_TIMES" jdbcType="DECIMAL" property="SIGN_TIMES" />
+    <result column="PSW_RETRY" jdbcType="DECIMAL" property="PSW_RETRY" />
+    <result column="TRM_TYP" jdbcType="CHAR" property="TRM_TYP" />
+    <result column="SIGN_TRM" jdbcType="CHAR" property="SIGN_TRM" />
+    <result column="PRT_IP" jdbcType="CHAR" property="PRT_IP" />
+    <result column="TLR_STSW" jdbcType="CHAR" property="TLR_STSW" />
+    <result column="LAST_JRN" jdbcType="DECIMAL" property="LAST_JRN" />
+    <result column="ACC_VCH_NO" jdbcType="CHAR" property="ACC_VCH_NO" />
+    <result column="TLR_CRD_NO" jdbcType="CHAR" property="TLR_CRD_NO" />
+    <result column="CRD_PSW_DT" jdbcType="DECIMAL" property="CRD_PSW_DT" />
+    <result column="KB_PSW_DT" jdbcType="DECIMAL" property="KB_PSW_DT" />
+    <result column="TELE" jdbcType="CHAR" property="TELE" />
+    <result column="PST_ADDRESS" jdbcType="CHAR" property="PST_ADDRESS" />
+    <result column="SIGN_TRM_FLG" jdbcType="CHAR" property="SIGN_TRM_FLG" />
+    <result column="TRM_INFO" jdbcType="CHAR" property="TRM_INFO" />
+    <result column="PSW_TYP" jdbcType="CHAR" property="PSW_TYP" />
+    <result column="IDEN_DEV_ID" jdbcType="CHAR" property="IDEN_DEV_ID" />
+    <result column="NEW_BR" jdbcType="DECIMAL" property="NEW_BR" />
+    <result column="NEW_BR_EFF" jdbcType="DECIMAL" property="NEW_BR_EFF" />
+    <result column="TM_OUT_LMT" jdbcType="DECIMAL" property="TM_OUT_LMT" />
+    <result column="ACC_SEN_CUS" jdbcType="CHAR" property="ACC_SEN_CUS" />
+    <result column="ACC_SEN_GL" jdbcType="CHAR" property="ACC_SEN_GL" />
+    <result column="SUPER_FLG" jdbcType="CHAR" property="SUPER_FLG" />
+    <result column="EXCEL_FLG" jdbcType="CHAR" property="EXCEL_FLG" />
+    <result column="DPT_NO" jdbcType="CHAR" property="DPT_NO" />
+    <result column="ATH_CARD" jdbcType="CHAR" property="ATH_CARD" />
+    <result column="LDAP_ID" jdbcType="CHAR" property="LDAP_ID" />
+    <result column="PRT_NAME1" jdbcType="CHAR" property="PRT_NAME1" />
+    <result column="PRT_NAME2" jdbcType="CHAR" property="PRT_NAME2" />
+    <result column="PRT_NAME3" jdbcType="CHAR" property="PRT_NAME3" />
+    <result column="AA_CODE" jdbcType="CHAR" property="AA_CODE" />
+    <result column="TS" jdbcType="TIMESTAMP" property="TS" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gaoyang.loadparm.entity.BpttltWithBLOBs">
+    <result column="TLR_CRD_PSW" jdbcType="BINARY" property="TLR_CRD_PSW" />
+    <result column="KB_PSW" jdbcType="BINARY" property="KB_PSW" />
+    <result column="LAST_KB_PSW" jdbcType="BINARY" property="LAST_KB_PSW" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    TLR, TLR_BR, TLR_TKS, STAF_NO, TLR_CN_NM, TLR_EN_NM, EFF_DT, EXP_DT, UPD_DT, UPD_TLR, 
+    TLR_TYP, TLR_LVL, TX_LVL, ATH_LVL, ATH_RGN, TMP_TX_LVL, TMP_ATH_LVL, TX_MODE, SIGN_STS, 
+    TLR_STS, SIGN_DT, CRO_BR_SIGN, SIGN_TIMES, PSW_RETRY, TRM_TYP, SIGN_TRM, PRT_IP, 
+    TLR_STSW, LAST_JRN, ACC_VCH_NO, TLR_CRD_NO, CRD_PSW_DT, KB_PSW_DT, TELE, PST_ADDRESS, 
+    SIGN_TRM_FLG, TRM_INFO, PSW_TYP, IDEN_DEV_ID, NEW_BR, NEW_BR_EFF, TM_OUT_LMT, ACC_SEN_CUS, 
+    ACC_SEN_GL, SUPER_FLG, EXCEL_FLG, DPT_NO, ATH_CARD, LDAP_ID, PRT_NAME1, PRT_NAME2, 
+    PRT_NAME3, AA_CODE, TS
+  </sql>
+  <sql id="Blob_Column_List">
+    TLR_CRD_PSW, KB_PSW, LAST_KB_PSW
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.gaoyang.loadparm.entity.BpttltExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from bpttlt
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.gaoyang.loadparm.entity.BpttltExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from bpttlt
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from bpttlt
+    where TLR = #{TLR,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from bpttlt
+    where TLR = #{TLR,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.gaoyang.loadparm.entity.BpttltWithBLOBs">
+    insert into bpttlt (TLR, TLR_BR, TLR_TKS, 
+      STAF_NO, TLR_CN_NM, TLR_EN_NM, 
+      EFF_DT, EXP_DT, UPD_DT, 
+      UPD_TLR, TLR_TYP, TLR_LVL, TX_LVL, 
+      ATH_LVL, ATH_RGN, TMP_TX_LVL, 
+      TMP_ATH_LVL, TX_MODE, SIGN_STS, 
+      TLR_STS, SIGN_DT, CRO_BR_SIGN, 
+      SIGN_TIMES, PSW_RETRY, TRM_TYP, 
+      SIGN_TRM, PRT_IP, TLR_STSW, 
+      LAST_JRN, ACC_VCH_NO, TLR_CRD_NO, 
+      CRD_PSW_DT, KB_PSW_DT, TELE, 
+      PST_ADDRESS, SIGN_TRM_FLG, TRM_INFO, 
+      PSW_TYP, IDEN_DEV_ID, NEW_BR, 
+      NEW_BR_EFF, TM_OUT_LMT, ACC_SEN_CUS, 
+      ACC_SEN_GL, SUPER_FLG, EXCEL_FLG, 
+      DPT_NO, ATH_CARD, LDAP_ID, PRT_NAME1, 
+      PRT_NAME2, PRT_NAME3, AA_CODE, 
+      TS, TLR_CRD_PSW, KB_PSW, 
+      LAST_KB_PSW)
+    values (#{TLR,jdbcType=CHAR}, #{TLR_BR,jdbcType=DECIMAL}, #{TLR_TKS,jdbcType=DECIMAL}, 
+      #{STAF_NO,jdbcType=CHAR}, #{TLR_CN_NM,jdbcType=CHAR}, #{TLR_EN_NM,jdbcType=CHAR}, 
+      #{EFF_DT,jdbcType=DECIMAL}, #{EXP_DT,jdbcType=DECIMAL}, #{UPD_DT,jdbcType=DECIMAL}, 
+      #{UPD_TLR,jdbcType=CHAR}, #{TLR_TYP,jdbcType=CHAR}, #{TLR_LVL,jdbcType=CHAR}, #{TX_LVL,jdbcType=CHAR}, 
+      #{ATH_LVL,jdbcType=CHAR}, #{ATH_RGN,jdbcType=CHAR}, #{TMP_TX_LVL,jdbcType=CHAR}, 
+      #{TMP_ATH_LVL,jdbcType=CHAR}, #{TX_MODE,jdbcType=CHAR}, #{SIGN_STS,jdbcType=CHAR}, 
+      #{TLR_STS,jdbcType=CHAR}, #{SIGN_DT,jdbcType=DECIMAL}, #{CRO_BR_SIGN,jdbcType=CHAR}, 
+      #{SIGN_TIMES,jdbcType=DECIMAL}, #{PSW_RETRY,jdbcType=DECIMAL}, #{TRM_TYP,jdbcType=CHAR}, 
+      #{SIGN_TRM,jdbcType=CHAR}, #{PRT_IP,jdbcType=CHAR}, #{TLR_STSW,jdbcType=CHAR}, 
+      #{LAST_JRN,jdbcType=DECIMAL}, #{ACC_VCH_NO,jdbcType=CHAR}, #{TLR_CRD_NO,jdbcType=CHAR}, 
+      #{CRD_PSW_DT,jdbcType=DECIMAL}, #{KB_PSW_DT,jdbcType=DECIMAL}, #{TELE,jdbcType=CHAR}, 
+      #{PST_ADDRESS,jdbcType=CHAR}, #{SIGN_TRM_FLG,jdbcType=CHAR}, #{TRM_INFO,jdbcType=CHAR}, 
+      #{PSW_TYP,jdbcType=CHAR}, #{IDEN_DEV_ID,jdbcType=CHAR}, #{NEW_BR,jdbcType=DECIMAL}, 
+      #{NEW_BR_EFF,jdbcType=DECIMAL}, #{TM_OUT_LMT,jdbcType=DECIMAL}, #{ACC_SEN_CUS,jdbcType=CHAR}, 
+      #{ACC_SEN_GL,jdbcType=CHAR}, #{SUPER_FLG,jdbcType=CHAR}, #{EXCEL_FLG,jdbcType=CHAR}, 
+      #{DPT_NO,jdbcType=CHAR}, #{ATH_CARD,jdbcType=CHAR}, #{LDAP_ID,jdbcType=CHAR}, #{PRT_NAME1,jdbcType=CHAR}, 
+      #{PRT_NAME2,jdbcType=CHAR}, #{PRT_NAME3,jdbcType=CHAR}, #{AA_CODE,jdbcType=CHAR}, 
+      #{TS,jdbcType=TIMESTAMP}, #{TLR_CRD_PSW,jdbcType=BINARY}, #{KB_PSW,jdbcType=BINARY}, 
+      #{LAST_KB_PSW,jdbcType=BINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gaoyang.loadparm.entity.BpttltWithBLOBs">
+    insert into bpttlt
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="TLR != null">
+        TLR,
+      </if>
+      <if test="TLR_BR != null">
+        TLR_BR,
+      </if>
+      <if test="TLR_TKS != null">
+        TLR_TKS,
+      </if>
+      <if test="STAF_NO != null">
+        STAF_NO,
+      </if>
+      <if test="TLR_CN_NM != null">
+        TLR_CN_NM,
+      </if>
+      <if test="TLR_EN_NM != null">
+        TLR_EN_NM,
+      </if>
+      <if test="EFF_DT != null">
+        EFF_DT,
+      </if>
+      <if test="EXP_DT != null">
+        EXP_DT,
+      </if>
+      <if test="UPD_DT != null">
+        UPD_DT,
+      </if>
+      <if test="UPD_TLR != null">
+        UPD_TLR,
+      </if>
+      <if test="TLR_TYP != null">
+        TLR_TYP,
+      </if>
+      <if test="TLR_LVL != null">
+        TLR_LVL,
+      </if>
+      <if test="TX_LVL != null">
+        TX_LVL,
+      </if>
+      <if test="ATH_LVL != null">
+        ATH_LVL,
+      </if>
+      <if test="ATH_RGN != null">
+        ATH_RGN,
+      </if>
+      <if test="TMP_TX_LVL != null">
+        TMP_TX_LVL,
+      </if>
+      <if test="TMP_ATH_LVL != null">
+        TMP_ATH_LVL,
+      </if>
+      <if test="TX_MODE != null">
+        TX_MODE,
+      </if>
+      <if test="SIGN_STS != null">
+        SIGN_STS,
+      </if>
+      <if test="TLR_STS != null">
+        TLR_STS,
+      </if>
+      <if test="SIGN_DT != null">
+        SIGN_DT,
+      </if>
+      <if test="CRO_BR_SIGN != null">
+        CRO_BR_SIGN,
+      </if>
+      <if test="SIGN_TIMES != null">
+        SIGN_TIMES,
+      </if>
+      <if test="PSW_RETRY != null">
+        PSW_RETRY,
+      </if>
+      <if test="TRM_TYP != null">
+        TRM_TYP,
+      </if>
+      <if test="SIGN_TRM != null">
+        SIGN_TRM,
+      </if>
+      <if test="PRT_IP != null">
+        PRT_IP,
+      </if>
+      <if test="TLR_STSW != null">
+        TLR_STSW,
+      </if>
+      <if test="LAST_JRN != null">
+        LAST_JRN,
+      </if>
+      <if test="ACC_VCH_NO != null">
+        ACC_VCH_NO,
+      </if>
+      <if test="TLR_CRD_NO != null">
+        TLR_CRD_NO,
+      </if>
+      <if test="CRD_PSW_DT != null">
+        CRD_PSW_DT,
+      </if>
+      <if test="KB_PSW_DT != null">
+        KB_PSW_DT,
+      </if>
+      <if test="TELE != null">
+        TELE,
+      </if>
+      <if test="PST_ADDRESS != null">
+        PST_ADDRESS,
+      </if>
+      <if test="SIGN_TRM_FLG != null">
+        SIGN_TRM_FLG,
+      </if>
+      <if test="TRM_INFO != null">
+        TRM_INFO,
+      </if>
+      <if test="PSW_TYP != null">
+        PSW_TYP,
+      </if>
+      <if test="IDEN_DEV_ID != null">
+        IDEN_DEV_ID,
+      </if>
+      <if test="NEW_BR != null">
+        NEW_BR,
+      </if>
+      <if test="NEW_BR_EFF != null">
+        NEW_BR_EFF,
+      </if>
+      <if test="TM_OUT_LMT != null">
+        TM_OUT_LMT,
+      </if>
+      <if test="ACC_SEN_CUS != null">
+        ACC_SEN_CUS,
+      </if>
+      <if test="ACC_SEN_GL != null">
+        ACC_SEN_GL,
+      </if>
+      <if test="SUPER_FLG != null">
+        SUPER_FLG,
+      </if>
+      <if test="EXCEL_FLG != null">
+        EXCEL_FLG,
+      </if>
+      <if test="DPT_NO != null">
+        DPT_NO,
+      </if>
+      <if test="ATH_CARD != null">
+        ATH_CARD,
+      </if>
+      <if test="LDAP_ID != null">
+        LDAP_ID,
+      </if>
+      <if test="PRT_NAME1 != null">
+        PRT_NAME1,
+      </if>
+      <if test="PRT_NAME2 != null">
+        PRT_NAME2,
+      </if>
+      <if test="PRT_NAME3 != null">
+        PRT_NAME3,
+      </if>
+      <if test="AA_CODE != null">
+        AA_CODE,
+      </if>
+      <if test="TS != null">
+        TS,
+      </if>
+      <if test="TLR_CRD_PSW != null">
+        TLR_CRD_PSW,
+      </if>
+      <if test="KB_PSW != null">
+        KB_PSW,
+      </if>
+      <if test="LAST_KB_PSW != null">
+        LAST_KB_PSW,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="TLR != null">
+        #{TLR,jdbcType=CHAR},
+      </if>
+      <if test="TLR_BR != null">
+        #{TLR_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="TLR_TKS != null">
+        #{TLR_TKS,jdbcType=DECIMAL},
+      </if>
+      <if test="STAF_NO != null">
+        #{STAF_NO,jdbcType=CHAR},
+      </if>
+      <if test="TLR_CN_NM != null">
+        #{TLR_CN_NM,jdbcType=CHAR},
+      </if>
+      <if test="TLR_EN_NM != null">
+        #{TLR_EN_NM,jdbcType=CHAR},
+      </if>
+      <if test="EFF_DT != null">
+        #{EFF_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="EXP_DT != null">
+        #{EXP_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_DT != null">
+        #{UPD_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_TLR != null">
+        #{UPD_TLR,jdbcType=CHAR},
+      </if>
+      <if test="TLR_TYP != null">
+        #{TLR_TYP,jdbcType=CHAR},
+      </if>
+      <if test="TLR_LVL != null">
+        #{TLR_LVL,jdbcType=CHAR},
+      </if>
+      <if test="TX_LVL != null">
+        #{TX_LVL,jdbcType=CHAR},
+      </if>
+      <if test="ATH_LVL != null">
+        #{ATH_LVL,jdbcType=CHAR},
+      </if>
+      <if test="ATH_RGN != null">
+        #{ATH_RGN,jdbcType=CHAR},
+      </if>
+      <if test="TMP_TX_LVL != null">
+        #{TMP_TX_LVL,jdbcType=CHAR},
+      </if>
+      <if test="TMP_ATH_LVL != null">
+        #{TMP_ATH_LVL,jdbcType=CHAR},
+      </if>
+      <if test="TX_MODE != null">
+        #{TX_MODE,jdbcType=CHAR},
+      </if>
+      <if test="SIGN_STS != null">
+        #{SIGN_STS,jdbcType=CHAR},
+      </if>
+      <if test="TLR_STS != null">
+        #{TLR_STS,jdbcType=CHAR},
+      </if>
+      <if test="SIGN_DT != null">
+        #{SIGN_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="CRO_BR_SIGN != null">
+        #{CRO_BR_SIGN,jdbcType=CHAR},
+      </if>
+      <if test="SIGN_TIMES != null">
+        #{SIGN_TIMES,jdbcType=DECIMAL},
+      </if>
+      <if test="PSW_RETRY != null">
+        #{PSW_RETRY,jdbcType=DECIMAL},
+      </if>
+      <if test="TRM_TYP != null">
+        #{TRM_TYP,jdbcType=CHAR},
+      </if>
+      <if test="SIGN_TRM != null">
+        #{SIGN_TRM,jdbcType=CHAR},
+      </if>
+      <if test="PRT_IP != null">
+        #{PRT_IP,jdbcType=CHAR},
+      </if>
+      <if test="TLR_STSW != null">
+        #{TLR_STSW,jdbcType=CHAR},
+      </if>
+      <if test="LAST_JRN != null">
+        #{LAST_JRN,jdbcType=DECIMAL},
+      </if>
+      <if test="ACC_VCH_NO != null">
+        #{ACC_VCH_NO,jdbcType=CHAR},
+      </if>
+      <if test="TLR_CRD_NO != null">
+        #{TLR_CRD_NO,jdbcType=CHAR},
+      </if>
+      <if test="CRD_PSW_DT != null">
+        #{CRD_PSW_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="KB_PSW_DT != null">
+        #{KB_PSW_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="TELE != null">
+        #{TELE,jdbcType=CHAR},
+      </if>
+      <if test="PST_ADDRESS != null">
+        #{PST_ADDRESS,jdbcType=CHAR},
+      </if>
+      <if test="SIGN_TRM_FLG != null">
+        #{SIGN_TRM_FLG,jdbcType=CHAR},
+      </if>
+      <if test="TRM_INFO != null">
+        #{TRM_INFO,jdbcType=CHAR},
+      </if>
+      <if test="PSW_TYP != null">
+        #{PSW_TYP,jdbcType=CHAR},
+      </if>
+      <if test="IDEN_DEV_ID != null">
+        #{IDEN_DEV_ID,jdbcType=CHAR},
+      </if>
+      <if test="NEW_BR != null">
+        #{NEW_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="NEW_BR_EFF != null">
+        #{NEW_BR_EFF,jdbcType=DECIMAL},
+      </if>
+      <if test="TM_OUT_LMT != null">
+        #{TM_OUT_LMT,jdbcType=DECIMAL},
+      </if>
+      <if test="ACC_SEN_CUS != null">
+        #{ACC_SEN_CUS,jdbcType=CHAR},
+      </if>
+      <if test="ACC_SEN_GL != null">
+        #{ACC_SEN_GL,jdbcType=CHAR},
+      </if>
+      <if test="SUPER_FLG != null">
+        #{SUPER_FLG,jdbcType=CHAR},
+      </if>
+      <if test="EXCEL_FLG != null">
+        #{EXCEL_FLG,jdbcType=CHAR},
+      </if>
+      <if test="DPT_NO != null">
+        #{DPT_NO,jdbcType=CHAR},
+      </if>
+      <if test="ATH_CARD != null">
+        #{ATH_CARD,jdbcType=CHAR},
+      </if>
+      <if test="LDAP_ID != null">
+        #{LDAP_ID,jdbcType=CHAR},
+      </if>
+      <if test="PRT_NAME1 != null">
+        #{PRT_NAME1,jdbcType=CHAR},
+      </if>
+      <if test="PRT_NAME2 != null">
+        #{PRT_NAME2,jdbcType=CHAR},
+      </if>
+      <if test="PRT_NAME3 != null">
+        #{PRT_NAME3,jdbcType=CHAR},
+      </if>
+      <if test="AA_CODE != null">
+        #{AA_CODE,jdbcType=CHAR},
+      </if>
+      <if test="TS != null">
+        #{TS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="TLR_CRD_PSW != null">
+        #{TLR_CRD_PSW,jdbcType=BINARY},
+      </if>
+      <if test="KB_PSW != null">
+        #{KB_PSW,jdbcType=BINARY},
+      </if>
+      <if test="LAST_KB_PSW != null">
+        #{LAST_KB_PSW,jdbcType=BINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gaoyang.loadparm.entity.BpttltWithBLOBs">
+    update bpttlt
+    <set>
+      <if test="TLR_BR != null">
+        TLR_BR = #{TLR_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="TLR_TKS != null">
+        TLR_TKS = #{TLR_TKS,jdbcType=DECIMAL},
+      </if>
+      <if test="STAF_NO != null">
+        STAF_NO = #{STAF_NO,jdbcType=CHAR},
+      </if>
+      <if test="TLR_CN_NM != null">
+        TLR_CN_NM = #{TLR_CN_NM,jdbcType=CHAR},
+      </if>
+      <if test="TLR_EN_NM != null">
+        TLR_EN_NM = #{TLR_EN_NM,jdbcType=CHAR},
+      </if>
+      <if test="EFF_DT != null">
+        EFF_DT = #{EFF_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="EXP_DT != null">
+        EXP_DT = #{EXP_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_DT != null">
+        UPD_DT = #{UPD_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="UPD_TLR != null">
+        UPD_TLR = #{UPD_TLR,jdbcType=CHAR},
+      </if>
+      <if test="TLR_TYP != null">
+        TLR_TYP = #{TLR_TYP,jdbcType=CHAR},
+      </if>
+      <if test="TLR_LVL != null">
+        TLR_LVL = #{TLR_LVL,jdbcType=CHAR},
+      </if>
+      <if test="TX_LVL != null">
+        TX_LVL = #{TX_LVL,jdbcType=CHAR},
+      </if>
+      <if test="ATH_LVL != null">
+        ATH_LVL = #{ATH_LVL,jdbcType=CHAR},
+      </if>
+      <if test="ATH_RGN != null">
+        ATH_RGN = #{ATH_RGN,jdbcType=CHAR},
+      </if>
+      <if test="TMP_TX_LVL != null">
+        TMP_TX_LVL = #{TMP_TX_LVL,jdbcType=CHAR},
+      </if>
+      <if test="TMP_ATH_LVL != null">
+        TMP_ATH_LVL = #{TMP_ATH_LVL,jdbcType=CHAR},
+      </if>
+      <if test="TX_MODE != null">
+        TX_MODE = #{TX_MODE,jdbcType=CHAR},
+      </if>
+      <if test="SIGN_STS != null">
+        SIGN_STS = #{SIGN_STS,jdbcType=CHAR},
+      </if>
+      <if test="TLR_STS != null">
+        TLR_STS = #{TLR_STS,jdbcType=CHAR},
+      </if>
+      <if test="SIGN_DT != null">
+        SIGN_DT = #{SIGN_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="CRO_BR_SIGN != null">
+        CRO_BR_SIGN = #{CRO_BR_SIGN,jdbcType=CHAR},
+      </if>
+      <if test="SIGN_TIMES != null">
+        SIGN_TIMES = #{SIGN_TIMES,jdbcType=DECIMAL},
+      </if>
+      <if test="PSW_RETRY != null">
+        PSW_RETRY = #{PSW_RETRY,jdbcType=DECIMAL},
+      </if>
+      <if test="TRM_TYP != null">
+        TRM_TYP = #{TRM_TYP,jdbcType=CHAR},
+      </if>
+      <if test="SIGN_TRM != null">
+        SIGN_TRM = #{SIGN_TRM,jdbcType=CHAR},
+      </if>
+      <if test="PRT_IP != null">
+        PRT_IP = #{PRT_IP,jdbcType=CHAR},
+      </if>
+      <if test="TLR_STSW != null">
+        TLR_STSW = #{TLR_STSW,jdbcType=CHAR},
+      </if>
+      <if test="LAST_JRN != null">
+        LAST_JRN = #{LAST_JRN,jdbcType=DECIMAL},
+      </if>
+      <if test="ACC_VCH_NO != null">
+        ACC_VCH_NO = #{ACC_VCH_NO,jdbcType=CHAR},
+      </if>
+      <if test="TLR_CRD_NO != null">
+        TLR_CRD_NO = #{TLR_CRD_NO,jdbcType=CHAR},
+      </if>
+      <if test="CRD_PSW_DT != null">
+        CRD_PSW_DT = #{CRD_PSW_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="KB_PSW_DT != null">
+        KB_PSW_DT = #{KB_PSW_DT,jdbcType=DECIMAL},
+      </if>
+      <if test="TELE != null">
+        TELE = #{TELE,jdbcType=CHAR},
+      </if>
+      <if test="PST_ADDRESS != null">
+        PST_ADDRESS = #{PST_ADDRESS,jdbcType=CHAR},
+      </if>
+      <if test="SIGN_TRM_FLG != null">
+        SIGN_TRM_FLG = #{SIGN_TRM_FLG,jdbcType=CHAR},
+      </if>
+      <if test="TRM_INFO != null">
+        TRM_INFO = #{TRM_INFO,jdbcType=CHAR},
+      </if>
+      <if test="PSW_TYP != null">
+        PSW_TYP = #{PSW_TYP,jdbcType=CHAR},
+      </if>
+      <if test="IDEN_DEV_ID != null">
+        IDEN_DEV_ID = #{IDEN_DEV_ID,jdbcType=CHAR},
+      </if>
+      <if test="NEW_BR != null">
+        NEW_BR = #{NEW_BR,jdbcType=DECIMAL},
+      </if>
+      <if test="NEW_BR_EFF != null">
+        NEW_BR_EFF = #{NEW_BR_EFF,jdbcType=DECIMAL},
+      </if>
+      <if test="TM_OUT_LMT != null">
+        TM_OUT_LMT = #{TM_OUT_LMT,jdbcType=DECIMAL},
+      </if>
+      <if test="ACC_SEN_CUS != null">
+        ACC_SEN_CUS = #{ACC_SEN_CUS,jdbcType=CHAR},
+      </if>
+      <if test="ACC_SEN_GL != null">
+        ACC_SEN_GL = #{ACC_SEN_GL,jdbcType=CHAR},
+      </if>
+      <if test="SUPER_FLG != null">
+        SUPER_FLG = #{SUPER_FLG,jdbcType=CHAR},
+      </if>
+      <if test="EXCEL_FLG != null">
+        EXCEL_FLG = #{EXCEL_FLG,jdbcType=CHAR},
+      </if>
+      <if test="DPT_NO != null">
+        DPT_NO = #{DPT_NO,jdbcType=CHAR},
+      </if>
+      <if test="ATH_CARD != null">
+        ATH_CARD = #{ATH_CARD,jdbcType=CHAR},
+      </if>
+      <if test="LDAP_ID != null">
+        LDAP_ID = #{LDAP_ID,jdbcType=CHAR},
+      </if>
+      <if test="PRT_NAME1 != null">
+        PRT_NAME1 = #{PRT_NAME1,jdbcType=CHAR},
+      </if>
+      <if test="PRT_NAME2 != null">
+        PRT_NAME2 = #{PRT_NAME2,jdbcType=CHAR},
+      </if>
+      <if test="PRT_NAME3 != null">
+        PRT_NAME3 = #{PRT_NAME3,jdbcType=CHAR},
+      </if>
+      <if test="AA_CODE != null">
+        AA_CODE = #{AA_CODE,jdbcType=CHAR},
+      </if>
+      <if test="TS != null">
+        TS = #{TS,jdbcType=TIMESTAMP},
+      </if>
+      <if test="TLR_CRD_PSW != null">
+        TLR_CRD_PSW = #{TLR_CRD_PSW,jdbcType=BINARY},
+      </if>
+      <if test="KB_PSW != null">
+        KB_PSW = #{KB_PSW,jdbcType=BINARY},
+      </if>
+      <if test="LAST_KB_PSW != null">
+        LAST_KB_PSW = #{LAST_KB_PSW,jdbcType=BINARY},
+      </if>
+    </set>
+    where TLR = #{TLR,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.gaoyang.loadparm.entity.BpttltWithBLOBs">
+    update bpttlt
+    set TLR_BR = #{TLR_BR,jdbcType=DECIMAL},
+      TLR_TKS = #{TLR_TKS,jdbcType=DECIMAL},
+      STAF_NO = #{STAF_NO,jdbcType=CHAR},
+      TLR_CN_NM = #{TLR_CN_NM,jdbcType=CHAR},
+      TLR_EN_NM = #{TLR_EN_NM,jdbcType=CHAR},
+      EFF_DT = #{EFF_DT,jdbcType=DECIMAL},
+      EXP_DT = #{EXP_DT,jdbcType=DECIMAL},
+      UPD_DT = #{UPD_DT,jdbcType=DECIMAL},
+      UPD_TLR = #{UPD_TLR,jdbcType=CHAR},
+      TLR_TYP = #{TLR_TYP,jdbcType=CHAR},
+      TLR_LVL = #{TLR_LVL,jdbcType=CHAR},
+      TX_LVL = #{TX_LVL,jdbcType=CHAR},
+      ATH_LVL = #{ATH_LVL,jdbcType=CHAR},
+      ATH_RGN = #{ATH_RGN,jdbcType=CHAR},
+      TMP_TX_LVL = #{TMP_TX_LVL,jdbcType=CHAR},
+      TMP_ATH_LVL = #{TMP_ATH_LVL,jdbcType=CHAR},
+      TX_MODE = #{TX_MODE,jdbcType=CHAR},
+      SIGN_STS = #{SIGN_STS,jdbcType=CHAR},
+      TLR_STS = #{TLR_STS,jdbcType=CHAR},
+      SIGN_DT = #{SIGN_DT,jdbcType=DECIMAL},
+      CRO_BR_SIGN = #{CRO_BR_SIGN,jdbcType=CHAR},
+      SIGN_TIMES = #{SIGN_TIMES,jdbcType=DECIMAL},
+      PSW_RETRY = #{PSW_RETRY,jdbcType=DECIMAL},
+      TRM_TYP = #{TRM_TYP,jdbcType=CHAR},
+      SIGN_TRM = #{SIGN_TRM,jdbcType=CHAR},
+      PRT_IP = #{PRT_IP,jdbcType=CHAR},
+      TLR_STSW = #{TLR_STSW,jdbcType=CHAR},
+      LAST_JRN = #{LAST_JRN,jdbcType=DECIMAL},
+      ACC_VCH_NO = #{ACC_VCH_NO,jdbcType=CHAR},
+      TLR_CRD_NO = #{TLR_CRD_NO,jdbcType=CHAR},
+      CRD_PSW_DT = #{CRD_PSW_DT,jdbcType=DECIMAL},
+      KB_PSW_DT = #{KB_PSW_DT,jdbcType=DECIMAL},
+      TELE = #{TELE,jdbcType=CHAR},
+      PST_ADDRESS = #{PST_ADDRESS,jdbcType=CHAR},
+      SIGN_TRM_FLG = #{SIGN_TRM_FLG,jdbcType=CHAR},
+      TRM_INFO = #{TRM_INFO,jdbcType=CHAR},
+      PSW_TYP = #{PSW_TYP,jdbcType=CHAR},
+      IDEN_DEV_ID = #{IDEN_DEV_ID,jdbcType=CHAR},
+      NEW_BR = #{NEW_BR,jdbcType=DECIMAL},
+      NEW_BR_EFF = #{NEW_BR_EFF,jdbcType=DECIMAL},
+      TM_OUT_LMT = #{TM_OUT_LMT,jdbcType=DECIMAL},
+      ACC_SEN_CUS = #{ACC_SEN_CUS,jdbcType=CHAR},
+      ACC_SEN_GL = #{ACC_SEN_GL,jdbcType=CHAR},
+      SUPER_FLG = #{SUPER_FLG,jdbcType=CHAR},
+      EXCEL_FLG = #{EXCEL_FLG,jdbcType=CHAR},
+      DPT_NO = #{DPT_NO,jdbcType=CHAR},
+      ATH_CARD = #{ATH_CARD,jdbcType=CHAR},
+      LDAP_ID = #{LDAP_ID,jdbcType=CHAR},
+      PRT_NAME1 = #{PRT_NAME1,jdbcType=CHAR},
+      PRT_NAME2 = #{PRT_NAME2,jdbcType=CHAR},
+      PRT_NAME3 = #{PRT_NAME3,jdbcType=CHAR},
+      AA_CODE = #{AA_CODE,jdbcType=CHAR},
+      TS = #{TS,jdbcType=TIMESTAMP},
+      TLR_CRD_PSW = #{TLR_CRD_PSW,jdbcType=BINARY},
+      KB_PSW = #{KB_PSW,jdbcType=BINARY},
+      LAST_KB_PSW = #{LAST_KB_PSW,jdbcType=BINARY}
+    where TLR = #{TLR,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gaoyang.loadparm.entity.Bpttlt">
+    update bpttlt
+    set TLR_BR = #{TLR_BR,jdbcType=DECIMAL},
+      TLR_TKS = #{TLR_TKS,jdbcType=DECIMAL},
+      STAF_NO = #{STAF_NO,jdbcType=CHAR},
+      TLR_CN_NM = #{TLR_CN_NM,jdbcType=CHAR},
+      TLR_EN_NM = #{TLR_EN_NM,jdbcType=CHAR},
+      EFF_DT = #{EFF_DT,jdbcType=DECIMAL},
+      EXP_DT = #{EXP_DT,jdbcType=DECIMAL},
+      UPD_DT = #{UPD_DT,jdbcType=DECIMAL},
+      UPD_TLR = #{UPD_TLR,jdbcType=CHAR},
+      TLR_TYP = #{TLR_TYP,jdbcType=CHAR},
+      TLR_LVL = #{TLR_LVL,jdbcType=CHAR},
+      TX_LVL = #{TX_LVL,jdbcType=CHAR},
+      ATH_LVL = #{ATH_LVL,jdbcType=CHAR},
+      ATH_RGN = #{ATH_RGN,jdbcType=CHAR},
+      TMP_TX_LVL = #{TMP_TX_LVL,jdbcType=CHAR},
+      TMP_ATH_LVL = #{TMP_ATH_LVL,jdbcType=CHAR},
+      TX_MODE = #{TX_MODE,jdbcType=CHAR},
+      SIGN_STS = #{SIGN_STS,jdbcType=CHAR},
+      TLR_STS = #{TLR_STS,jdbcType=CHAR},
+      SIGN_DT = #{SIGN_DT,jdbcType=DECIMAL},
+      CRO_BR_SIGN = #{CRO_BR_SIGN,jdbcType=CHAR},
+      SIGN_TIMES = #{SIGN_TIMES,jdbcType=DECIMAL},
+      PSW_RETRY = #{PSW_RETRY,jdbcType=DECIMAL},
+      TRM_TYP = #{TRM_TYP,jdbcType=CHAR},
+      SIGN_TRM = #{SIGN_TRM,jdbcType=CHAR},
+      PRT_IP = #{PRT_IP,jdbcType=CHAR},
+      TLR_STSW = #{TLR_STSW,jdbcType=CHAR},
+      LAST_JRN = #{LAST_JRN,jdbcType=DECIMAL},
+      ACC_VCH_NO = #{ACC_VCH_NO,jdbcType=CHAR},
+      TLR_CRD_NO = #{TLR_CRD_NO,jdbcType=CHAR},
+      CRD_PSW_DT = #{CRD_PSW_DT,jdbcType=DECIMAL},
+      KB_PSW_DT = #{KB_PSW_DT,jdbcType=DECIMAL},
+      TELE = #{TELE,jdbcType=CHAR},
+      PST_ADDRESS = #{PST_ADDRESS,jdbcType=CHAR},
+      SIGN_TRM_FLG = #{SIGN_TRM_FLG,jdbcType=CHAR},
+      TRM_INFO = #{TRM_INFO,jdbcType=CHAR},
+      PSW_TYP = #{PSW_TYP,jdbcType=CHAR},
+      IDEN_DEV_ID = #{IDEN_DEV_ID,jdbcType=CHAR},
+      NEW_BR = #{NEW_BR,jdbcType=DECIMAL},
+      NEW_BR_EFF = #{NEW_BR_EFF,jdbcType=DECIMAL},
+      TM_OUT_LMT = #{TM_OUT_LMT,jdbcType=DECIMAL},
+      ACC_SEN_CUS = #{ACC_SEN_CUS,jdbcType=CHAR},
+      ACC_SEN_GL = #{ACC_SEN_GL,jdbcType=CHAR},
+      SUPER_FLG = #{SUPER_FLG,jdbcType=CHAR},
+      EXCEL_FLG = #{EXCEL_FLG,jdbcType=CHAR},
+      DPT_NO = #{DPT_NO,jdbcType=CHAR},
+      ATH_CARD = #{ATH_CARD,jdbcType=CHAR},
+      LDAP_ID = #{LDAP_ID,jdbcType=CHAR},
+      PRT_NAME1 = #{PRT_NAME1,jdbcType=CHAR},
+      PRT_NAME2 = #{PRT_NAME2,jdbcType=CHAR},
+      PRT_NAME3 = #{PRT_NAME3,jdbcType=CHAR},
+      AA_CODE = #{AA_CODE,jdbcType=CHAR},
+      TS = #{TS,jdbcType=TIMESTAMP}
+    where TLR = #{TLR,jdbcType=CHAR}
+  </update>
+</mapper>
